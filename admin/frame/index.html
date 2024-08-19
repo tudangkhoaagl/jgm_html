@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frame</title>
+    <link href="../assets/css/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/linearicons/style.css">
+</head>
+
+<body>
+    <header>
+        <!-- Navbar for Mobile -->
+        <nav class="navbar navbar-light bg-light fixed-top d-md-none">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <img src="../assets/images/Yet.png" alt="Logo" height="30">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
+                    aria-controls="menu" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </nav>
+
+        <div class="vertical-menu mobile" id="menu">
+            <div class="menu-item">
+                <a href="../report/index.html" class="active"><i class="lnr lnr-file-add mx-2"></i><span>レポート</span></a>
+                <a href="../setting/index.html" class=""><i class="lnr lnr-cog mx-2"></i><span>マスター設定</span></a>
+                <a href="../frame/index.html" class=""><i class="lnr lnr-frame-expand mx-2"></i><span>枠設定</span></a>
+                <a href="../reminder/index.html" class=""><i class="lnr lnr-alarm mx-2"></i><span>予約通知設定</span></a>
+                <div class="menu-item">
+                    <a href="#" class="menu-toggle active"><i class="lnr lnr-envelope mx-2"></i><span>ページ1</span> <i
+                            class="icon-submenu lnr lnr-chevron-left"></i></a>
+                    <div class="submenu sub-menu-active">
+                        <a href="#">サブページ1-1</a>
+                        <a href="#">サブページ1-2</a>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <a href="#" class="menu-toggle"><i class="lnr lnr-envelope mx-2"></i><span>ページ2</span> <i
+                            class="icon-submenu lnr lnr-chevron-left"></i></a>
+                    <div class="submenu">
+                        <a href="#">サブページ2-1</a>
+                        <a href="#">サブページ2-2</a>
+                    </div>
+                </div>
+                <a href="#"><i class="lnr lnr-envelope mx-2"></i><span>詳細</span></a>
+            </div>
+        </div>
+        <a href="#"><i class="lnr lnr-envelope mx-2"></i><span>詳細</span></a>
+        </div>
+
+        <!-- Vertical Menu -->
+        <div class="vertical-menu pc" id="">
+            <div class="logo">
+                <img src="../assets/images/Yet.png" alt="Logo" class="img-fluid" height="30">
+            </div>
+            <a href="../report/index.html" class="active"><i class="lnr lnr-file-add mx-2"></i><span>レポート</span></a>
+            <a href="../setting/index.html" class=""><i class="lnr lnr-cog mx-2"></i><span>マスター設定</span></a>
+            <a href="../frame/index.html" class=""><i class="lnr lnr-frame-expand mx-2"></i><span>枠設定</span></a>
+            <a href="../reminder/index.html" class=""><i class="lnr lnr-alarm mx-2"></i><span>予約通知設定</span></a>
+            <div class="menu-item">
+                <a href="#" class="menu-toggle active"><i class="lnr lnr-envelope mx-2"></i><span>ページ1</span> <i
+                        class="icon-submenu lnr lnr-chevron-left"></i></a>
+                <div class="submenu sub-menu-active">
+                    <a href="#">サブページ1-1</a>
+                    <a href="#">サブページ1-2</a>
+                </div>
+            </div>
+            <div class="menu-item">
+                <a href="#" class="menu-toggle"><i class="lnr lnr-envelope mx-2"></i><span>ページ2</span> <i
+                        class="icon-submenu lnr lnr-chevron-left"></i></a>
+                <div class="submenu">
+                    <a href="#">サブページ2-1</a>
+                    <a href="#">サブページ2-2</a>
+                </div>
+            </div>
+            <a href="#"><i class="lnr lnr-envelope mx-2"></i><span>詳細</span></a>
+        </div>
+    </header>
+
+    <!-- Content -->
+    <div class="content-wrapper">
+        <div class="content mt-1">
+            <!-- Breadcrumb -->
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item active" aria-current="page">リストページ</li>
+                </ol>
+            </nav>
+            <!-- Filter Form -->
+            <div class="border-wrapper">
+                <h2 class="text-center mb-4 fw-bold">検索</h2>
+                <form id="filter-form" class="filter-form">
+                    <div class="row">
+                        <div class="col-md-3 form-group">
+                            <label for="nameFilter" class="form-label fw-bold">枠名</label>
+                            <input type="text" id="nameFilter" name="nameFilter" class="form-control"
+                                placeholder="Search by name">
+                        </div>
+                        <div class="col-md-3 form-group">
+                            <label for="peopleFilter" class="form-label fw-bold">人数</label>
+                            <input type="number" id="peopleFilter" name="peopleFilter" class="form-control"
+                                placeholder="Search by people">
+                        </div>
+                        <div class="col-md-3 form-group">
+                            <label for="typeFilter" class="form-label fw-bold">タイプ</label>
+                            <input type="text" id="typeFilter" name="typeFilter" class="form-control"
+                                placeholder="Search by type">
+                        </div>
+                        <div class="col-md-3 form-group">
+                            <label for="statusFilter" class="form-label fw-bold">公開 / 非公開</label>
+                            <select id="statusFilter" name="statusFilter" class="form-select">
+                                <option value="">All</option>
+                                <option value="公開">公開</option>
+                                <option value="非公開">非公開</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="text-center mt-3">
+                        <button type="submit" class="btn btn-primary">フィルタ</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="border-wrapper">
+                <h2 class="text-center mb-4 fw-bold">リストページ</h2>
+                <!-- Add New Button -->
+                <div class="d-flex justify-content-end mb-3">
+                    <a type="button" href="create.html" class="btn btn-success">新規追加</a>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped" id="dataTable">
+                        <thead>
+                            <tr>
+                                <th scope="col">枠名</th>
+                                <th scope="col">人数</th>
+                                <th scope="col">タイプ</th>
+                                <th scope="col">公開 / 非公開</th>
+                                <th scope="col">アクション</th> <!-- New column header -->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>サンプル1</td>
+                                <td>10</td>
+                                <td>タイプA</td>
+                                <td><span class="badge bg-success">公開</span></td>
+                                <td>
+                                    <a type="button" href="detail.html" class="btn btn-primary btn-sm me-2">更新</a>
+                                    <a type="button" href="edit.html" class="btn btn-success btn-sm me-2">枠調整</a>
+                                    <a type="button" href="delete" data-bs-toggle="modal" data-bs-target="#deleteModal"
+                                        class="btn btn-danger btn-sm">削除</a>
+                                </td> <!-- Update and Delete buttons -->
+                            </tr>
+                            <tr>
+                                <td>サンプル2</td>
+                                <td>5</td>
+                                <td>タイプB</td>
+                                <td><span class="badge bg-danger">非公開</span></td>
+                                <td>
+                                    <a type="button" href="detail.html" class="btn btn-primary btn-sm me-2">更新</a>
+                                    <a type="button" href="edit.html" class="btn btn-success btn-sm me-2">枠調整</a>
+                                    <a type="button" href="delete" data-bs-toggle="modal" data-bs-target="#deleteModal"
+                                        class="btn btn-danger btn-sm">削除</a>
+                                </td> <!-- Update and Delete buttons -->
+                            </tr>
+                            <tr>
+                                <td>サンプル2</td>
+                                <td>5</td>
+                                <td>タイプB</td>
+                                <td><span class="badge bg-danger">非公開</span></td>
+                                <td>
+                                    <a type="button" href="detail.html" class="btn btn-primary btn-sm me-2">更新</a>
+                                    <a type="button" href="edit.html" class="btn btn-success btn-sm me-2">枠調整</a>
+                                    <a type="button" href="delete" data-bs-toggle="modal" data-bs-target="#deleteModal"
+                                        class="btn btn-danger btn-sm">削除</a>
+                                </td> <!-- Update and Delete buttons -->
+                            </tr>
+                            <tr>
+                                <td>サンプル2</td>
+                                <td>5</td>
+                                <td>タイプB</td>
+                                <td><span class="badge bg-danger">非公開</span></td>
+                                <td>
+                                    <a type="button" href="detail.html" class="btn btn-primary btn-sm me-2">更新</a>
+                                    <a type="button" href="edit.html" class="btn btn-success btn-sm me-2">枠調整</a>
+                                    <a type="button" href="delete" data-bs-toggle="modal" data-bs-target="#deleteModal"
+                                        class="btn btn-danger btn-sm">削除</a>
+                                </td> <!-- Update and Delete buttons -->
+                            </tr>
+                            <tr>
+                                <td>サンプル2</td>
+                                <td>5</td>
+                                <td>タイプB</td>
+                                <td><span class="badge bg-danger">非公開</span></td>
+                                <td>
+                                    <a type="button" href="detail.html" class="btn btn-primary btn-sm me-2">更新</a>
+                                    <a type="button" href="edit.html" class="btn btn-success btn-sm me-2">枠調整</a>
+                                    <a type="button" href="delete" data-bs-toggle="modal" data-bs-target="#deleteModal"
+                                        class="btn btn-danger btn-sm">削除</a>
+                                </td> <!-- Update and Delete buttons -->
+                            </tr>
+                            <tr>
+                                <td>サンプル2</td>
+                                <td>5</td>
+                                <td>タイプB</td>
+                                <td><span class="badge bg-danger">非公開</span></td>
+                                <td>
+                                    <a type="button" href="detail.html" class="btn btn-primary btn-sm me-2">更新</a>
+                                    <a type="button" href="edit.html" class="btn btn-success btn-sm me-2">枠調整</a>
+                                    <a type="button" href="delete" data-bs-toggle="modal" data-bs-target="#deleteModal"
+                                        class="btn btn-danger btn-sm">削除</a>
+                                </td> <!-- Update and Delete buttons -->
+                            </tr>
+                            <tr>
+                                <td>サンプル2</td>
+                                <td>5</td>
+                                <td>タイプB</td>
+                                <td><span class="badge bg-danger">非公開</span></td>
+                                <td>
+                                    <a type="button" href="edit.html" class="btn btn-primary btn-sm me-2">更新</a>
+                                    <a type="button" href="edit.html" class="btn btn-success btn-sm me-2">枠調整</a>
+                                    <a type="button" href="delete" data-bs-toggle="modal" data-bs-target="#deleteModal"
+                                        class="btn btn-danger btn-sm">削除</a>
+                                </td> <!-- Update and Delete buttons -->
+                            </tr>
+                            <tr>
+                                <td>サンプル2</td>
+                                <td>5</td>
+                                <td>タイプB</td>
+                                <td><span class="badge bg-danger">非公開</span></td>
+                                <td>
+                                    <a type="button" href="edit.html" class="btn btn-primary btn-sm me-2">更新</a>
+                                    <a type="button" href="edit.html" class="btn btn-success btn-sm me-2">枠調整</a>
+                                    <a type="button" href="delete" data-bs-toggle="modal" data-bs-target="#deleteModal"
+                                        class="btn btn-danger btn-sm">削除</a>
+                                </td> <!-- Update and Delete buttons -->
+                            </tr>
+                            <tr>
+                                <td>サンプル2</td>
+                                <td>5</td>
+                                <td>タイプB</td>
+                                <td><span class="badge bg-danger">非公開</span></td>
+                                <td>
+                                    <a type="button" href="edit.html" class="btn btn-primary btn-sm me-2">更新</a>
+                                    <a type="button" href="edit.html" class="btn btn-success btn-sm me-2">枠調整</a>
+                                    <a type="button" href="delete" data-bs-toggle="modal" data-bs-target="#deleteModal"
+                                        class="btn btn-danger btn-sm">削除</a>
+                                </td> <!-- Update and Delete buttons -->
+                            </tr>
+                            <tr>
+                                <td>サンプル2</td>
+                                <td>5</td>
+                                <td>タイプB</td>
+                                <td><span class="badge bg-danger">非公開</span></td>
+                                <td>
+                                    <a type="button" href="edit.html" class="btn btn-primary btn-sm me-2">更新</a>
+                                    <a type="button" href="edit.html" class="btn btn-success btn-sm me-2">枠調整</a>
+                                    <a type="button" href="delete" data-bs-toggle="modal" data-bs-target="#deleteModal"
+                                        class="btn btn-danger btn-sm">削除</a>
+                                </td> <!-- Update and Delete buttons -->
+                            </tr>
+                            <!-- More rows as needed -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Pagination -->
+                <nav aria-label="Page navigation">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1">前へ</a>
+                        </li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">次へ</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="deleteModalLabel">削除確認</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        本当にこの項目を削除してもよろしいですか？この操作は元に戻すことができません。
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">キャンセル</button>
+                        <button type="button" class="btn btn-danger">削除</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer class="bg-light text-dark pt-4">
+        <div class="container">
+            <div class="row footer-container">
+                <!-- Items in the Navigator -->
+                <div class="col-md-4">
+                    <h5>ナビゲーション項目</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="../report/index.html" class="text-dark">レポート </a></li>
+                        <li><a href="../setting/index.html" class="text-dark">マスター設定</a> </li>
+                        <li><a href="../frame/index.html" class="text-dark">枠設定</a> </li>
+                        <li><a href="../reminder/index.html" class="text-dark">予約通知設定</a> </li>
+                        <li>
+                            <a href="#" class="text-dark">ページ1</a>
+                            <ul class="list-unstyled">
+                                <li>サブページ1-1</li>
+                                <li>サブページ1-2</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="text-dark">ページ2</a>
+                            
+                            <ul class="list-unstyled">
+                                <li>サブページ2-1</li>
+                                <li>サブページ2-2</li>
+                            </ul>
+                        </li>
+                        <li><a href="#" class="text-dark">詳細</a></li>
+                    </ul>
+                </div>
+                <!-- About Us -->
+                <div class="col-md-4">
+                    <h5>私たちについて</h5>
+                    <p>私たちはウェブ開発のプロフェッショナルであり、最高のサービスを提供することを目指しています。</p>
+                </div>
+                <!-- How to Contact -->
+                <div class="col-md-4">
+                    <h5>お問い合わせ方法</h5>
+                    <ul class="list-unstyled">
+                        <li>Email: <a href="mailto:info@example.com" class="text-dark">info@example.com</a></li>
+                        <li>電話: 123-456-7890</li>
+                        <li>住所: 1234 Example Street, City, Country</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="../assets/js/bootstrap/bootstrap.bundle.min.js">
+    </script>
+    <script src="../assets/js/jquery-3.6.0.min.js"></script>
+    <script src="../assets/js/script.js"></script>
+
+</body>
+
+</html>

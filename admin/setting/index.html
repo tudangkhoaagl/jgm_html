@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frame</title>
+    <link href="../assets/css/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/linearicons/style.css">
+    <link rel="stylesheet" href="../assets/linearicons/style.css">
+</head>
+
+<body>
+    <header>
+        <!-- Navbar for Mobile -->
+        <nav class="navbar navbar-light bg-light fixed-top d-md-none">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <img src="../assets/images/Yet.png" alt="Logo" height="30">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
+                    aria-controls="menu" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </nav>
+
+        <div class="vertical-menu mobile" id="menu">
+            <div class="menu-item">
+                <a href="../report/index.html" class="active"><i class="lnr lnr-file-add mx-2"></i><span>レポート</span></a>
+                <a href="../setting/index.html" class=""><i class="lnr lnr-cog mx-2"></i><span>マスター設定</span></a>
+                <a href="../frame/index.html" class=""><i class="lnr lnr-frame-expand mx-2"></i><span>枠設定</span></a>
+                <a href="../reminder/index.html" class=""><i class="lnr lnr-alarm mx-2"></i><span>予約通知設定</span></a>
+                <div class="menu-item">
+                    <a href="#" class="menu-toggle active"><i class="lnr lnr-envelope mx-2"></i><span>ページ1</span> <i
+                            class="icon-submenu lnr lnr-chevron-left"></i></a>
+                    <div class="submenu sub-menu-active">
+                        <a href="#">サブページ1-1</a>
+                        <a href="#">サブページ1-2</a>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <a href="#" class="menu-toggle"><i class="lnr lnr-envelope mx-2"></i><span>ページ2</span> <i
+                            class="icon-submenu lnr lnr-chevron-left"></i></a>
+                    <div class="submenu">
+                        <a href="#">サブページ2-1</a>
+                        <a href="#">サブページ2-2</a>
+                    </div>
+                </div>
+                <a href="#"><i class="lnr lnr-envelope mx-2"></i><span>詳細</span></a>
+            </div>
+        </div>
+        <a href="#"><i class="lnr lnr-envelope mx-2"></i><span>詳細</span></a>
+        </div>
+
+        <!-- Vertical Menu -->
+        <div class="vertical-menu pc" id="">
+            <div class="logo">
+                <img src="../assets/images/Yet.png" alt="Logo" class="img-fluid" height="30">
+            </div>
+            <a href="../report/index.html" class="active"><i class="lnr lnr-file-add mx-2"></i><span>レポート</span></a>
+            <a href="../setting/index.html" class=""><i class="lnr lnr-cog mx-2"></i><span>マスター設定</span></a>
+            <a href="../frame/index.html" class=""><i class="lnr lnr-frame-expand mx-2"></i><span>枠設定</span></a>
+            <a href="../reminder/index.html" class=""><i class="lnr lnr-alarm mx-2"></i><span>予約通知設定</span></a>
+            <div class="menu-item">
+                <a href="#" class="menu-toggle active"><i class="lnr lnr-envelope mx-2"></i><span>ページ1</span> <i
+                        class="icon-submenu lnr lnr-chevron-left"></i></a>
+                <div class="submenu sub-menu-active">
+                    <a href="#">サブページ1-1</a>
+                    <a href="#">サブページ1-2</a>
+                </div>
+            </div>
+            <div class="menu-item">
+                <a href="#" class="menu-toggle"><i class="lnr lnr-envelope mx-2"></i><span>ページ2</span> <i
+                        class="icon-submenu lnr lnr-chevron-left"></i></a>
+                <div class="submenu">
+                    <a href="#">サブページ2-1</a>
+                    <a href="#">サブページ2-2</a>
+                </div>
+            </div>
+            <a href="#"><i class="lnr lnr-envelope mx-2"></i><span>詳細</span></a>
+        </div>
+    </header>
+
+    <!-- Content -->
+    <div class="content-wrapper">
+        <div class="content mt-1">
+            <!-- Breadcrumb -->
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item active" aria-current="page">予約時取得項目設定</li>
+                </ol>
+            </nav>
+
+            <div class="border-wrapper">
+                <h2 class="text-center mb-4 fw-bold">予約時取得項目設定</h2>
+                <form id="reservation-form">
+                    <div class="mb-3 row">
+                        <label for="lastName" class="col-sm-4 col-form-label fw-bold">氏</label>
+                        <div class="col-sm-6">
+                            <select id="lastName" name="lastName" class="form-select">
+                                <option value="0">非表示</option>
+                                <option value="1">任意</option>
+                                <option value="2">必須</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="firstName" class="col-sm-4 col-form-label fw-bold">名</label>
+                        <div class="col-sm-6">
+                            <select id="firstName" name="firstName" class="form-select">
+                                <option value="0">非表示</option>
+                                <option value="1">任意</option>
+                                <option value="2">必須</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="lastNameKana" class="col-sm-4 col-form-label fw-bold">氏（ふりがな）</label>
+                        <div class="col-sm-6">
+                            <select id="lastNameKana" name="lastNameKana" class="form-select">
+                                <option value="0">非表示</option>
+                                <option value="1">任意</option>
+                                <option value="2">必須</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="firstNameKana" class="col-sm-4 col-form-label fw-bold">名（ふりがな)</label>
+                        <div class="col-sm-6">
+                            <select id="firstNameKana" name="firstNameKana" class="form-select">
+                                <option value="0">非表示</option>
+                                <option value="1">任意</option>
+                                <option value="2">必須</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="email" class="col-sm-4 col-form-label fw-bold">メールアドレス</label>
+                        <div class="col-sm-6">
+                            <select id="email" name="email" class="form-select">
+                                <option value="0">非表示</option>
+                                <option value="1">任意</option>
+                                <option value="2">必須</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="phone" class="col-sm-4 col-form-label fw-bold">電話番号</label>
+                        <div class="col-sm-6">
+                            <select id="phone" name="phone" class="form-select">
+                                <option value="0">非表示</option>
+                                <option value="1">任意</option>
+                                <option value="2">必須</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="dob" class="col-sm-4 col-form-label fw-bold">生年月日</label>
+                        <div class="col-sm-6">
+                            <select id="dob" name="dob" class="form-select">
+                                <option value="0">非表示</option>
+                                <option value="1">任意</option>
+                                <option value="2">必須</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="gender" class="col-sm-4 col-form-label fw-bold">性別</label>
+                        <div class="col-sm-6">
+                            <select id="gender" name="gender" class="form-select">
+                                <option value="0">非表示</option>
+                                <option value="1">任意</option>
+                                <option value="2">必須</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary">保存</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- Footer -->
+    <footer class="bg-light text-dark pt-4">
+        <div class="container">
+            <div class="row footer-container">
+                <!-- Items in the Navigator -->
+                <div class="col-md-4">
+                    <h5>ナビゲーション項目</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="../report/index.html" class="text-dark">レポート </a></li>
+                        <li><a href="../setting/index.html" class="text-dark">マスター設定</a> </li>
+                        <li><a href="../frame/index.html" class="text-dark">枠設定</a> </li>
+                        <li><a href="../reminder/index.html" class="text-dark">予約通知設定</a> </li>
+                        <li>
+                            <a href="#" class="text-dark">ページ1</a>
+                            <ul class="list-unstyled">
+                                <li>サブページ1-1</li>
+                                <li>サブページ1-2</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="text-dark">ページ2</a>
+                            
+                            <ul class="list-unstyled">
+                                <li>サブページ2-1</li>
+                                <li>サブページ2-2</li>
+                            </ul>
+                        </li>
+                        <li><a href="#" class="text-dark">詳細</a></li>
+                    </ul>
+                </div>
+                <!-- About Us -->
+                <div class="col-md-4">
+                    <h5>私たちについて</h5>
+                    <p>私たちはウェブ開発のプロフェッショナルであり、最高のサービスを提供することを目指しています。</p>
+                </div>
+                <!-- How to Contact -->
+                <div class="col-md-4">
+                    <h5>お問い合わせ方法</h5>
+                    <ul class="list-unstyled">
+                        <li>Email: <a href="mailto:info@example.com" class="text-dark">info@example.com</a></li>
+                        <li>電話: 123-456-7890</li>
+                        <li>住所: 1234 Example Street, City, Country</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/bootstrap/bootstrap.bundle.min.js">
+    </script>
+    <script src="../assets/js/jquery-3.6.0.min.js"></script>
+    <script src="../assets/js/script.js"></script>
+
+</body>
+
+</html>

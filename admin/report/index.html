@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frame</title>
+    <link href="../assets/css/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/linearicons/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/linearicons/style.css">
+</head>
+
+<body>
+    <header>
+        <!-- Navbar for Mobile -->
+        <nav class="navbar navbar-light bg-light fixed-top d-md-none">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <img src="../assets/images/Yet.png" alt="Logo" height="30">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
+                    aria-controls="menu" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </nav>
+
+        <div class="vertical-menu mobile" id="menu">
+            <div class="menu-item">
+                <a href="../report/index.html" class="active"><i class="lnr lnr-file-add mx-2"></i><span>レポート</span></a>
+                <a href="../setting/index.html" class=""><i class="lnr lnr-cog mx-2"></i><span>マスター設定</span></a>
+                <a href="../frame/index.html" class=""><i class="lnr lnr-frame-expand mx-2"></i><span>枠設定</span></a>
+                <a href="../reminder/index.html" class=""><i class="lnr lnr-alarm mx-2"></i><span>予約通知設定</span></a>
+                <div class="menu-item">
+                    <a href="#" class="menu-toggle active"><i class="lnr lnr-envelope mx-2"></i><span>ページ1</span> <i
+                            class="icon-submenu lnr lnr-chevron-left"></i></a>
+                    <div class="submenu sub-menu-active">
+                        <a href="#">サブページ1-1</a>
+                        <a href="#">サブページ1-2</a>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <a href="#" class="menu-toggle"><i class="lnr lnr-envelope mx-2"></i><span>ページ2</span> <i
+                            class="icon-submenu lnr lnr-chevron-left"></i></a>
+                    <div class="submenu">
+                        <a href="#">サブページ2-1</a>
+                        <a href="#">サブページ2-2</a>
+                    </div>
+                </div>
+                <a href="#"><i class="lnr lnr-envelope mx-2"></i><span>詳細</span></a>
+            </div>
+        </div>
+        <a href="#"><i class="lnr lnr-envelope mx-2"></i><span>詳細</span></a>
+        </div>
+
+        <!-- Vertical Menu -->
+        <div class="vertical-menu pc" id="">
+            <div class="logo">
+                <img src="../assets/images/Yet.png" alt="Logo" class="img-fluid" height="30">
+            </div>
+            <a href="../report/index.html" class="active"><i class="lnr lnr-file-add mx-2"></i><span>レポート</span></a>
+            <a href="../setting/index.html" class=""><i class="lnr lnr-cog mx-2"></i><span>マスター設定</span></a>
+            <a href="../frame/index.html" class=""><i class="lnr lnr-frame-expand mx-2"></i><span>枠設定</span></a>
+            <a href="../reminder/index.html" class=""><i class="lnr lnr-alarm mx-2"></i><span>予約通知設定</span></a>
+            <div class="menu-item">
+                <a href="#" class="menu-toggle active"><i class="lnr lnr-envelope mx-2"></i><span>ページ1</span> <i
+                        class="icon-submenu lnr lnr-chevron-left"></i></a>
+                <div class="submenu sub-menu-active">
+                    <a href="#">サブページ1-1</a>
+                    <a href="#">サブページ1-2</a>
+                </div>
+            </div>
+            <div class="menu-item">
+                <a href="#" class="menu-toggle"><i class="lnr lnr-envelope mx-2"></i><span>ページ2</span> <i
+                        class="icon-submenu lnr lnr-chevron-left"></i></a>
+                <div class="submenu">
+                    <a href="#">サブページ2-1</a>
+                    <a href="#">サブページ2-2</a>
+                </div>
+            </div>
+            <a href="#"><i class="lnr lnr-envelope mx-2"></i><span>詳細</span></a>
+        </div>
+    </header>
+
+    <!-- Content -->
+    <div class="content-wrapper">
+        <div class="content mt-1">
+            <!-- Breadcrumb -->
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item active" aria-current="page">日別売上</li>
+                </ol>
+            </nav>
+
+            <div class="border-wrapper">
+                <h2 class="text-center mb-4 fw-bold">日別売上</h2>
+                <!-- Daily Sales Section -->
+                <div class="sales-container">
+                    <form id="daily-sales-form" class="mb-4">
+                        <div class="mb-3">
+                            <label for="dailyDate" class="form-label">日付を選択</label>
+                            <input type="text" id="dailyDate" name="dailyDate" class="form-control flatpickr-date"
+                                placeholder="YYYY-MM-DD">
+                        </div>
+                        <button type="submit" class="btn btn-primary">リストを表示</button>
+                    </form>
+                    <p>デフォルトは今日の売上を表示します。</p>
+                    <div id="daily-sales-list">
+                        <h2 class="text-center mb-4 fw-bold mt-3">Chart</h2>
+                        <!-- List of daily sales will be rendered here -->
+                        <div class="chart">
+                            <canvas id="chartDailySale"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="table-responsive">
+
+                        <h2 class="text-center mb-4 fw-bold mt-3">Table</h2>
+                        <table class="table table-bordered table-striped" id="dataTable">
+                            <thead>
+                                <tr>
+                                    <th scope="col">枠名</th>
+                                    <th scope="col">人数</th>
+                                    <th scope="col">タイプ</th>
+                                    <th scope="col">公開 / 非公開</th>
+                                    <th scope="col">アクション</th> <!-- New column header -->
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>サンプル1</td>
+                                    <td>10</td>
+                                    <td>タイプA</td>
+                                    <td><span class="badge bg-success">公開</span></td>
+                                    <td>
+                                        <button type="button" class="btn btn-primary btn-sm me-2">更新</button>
+                                        <button type="button" class="btn btn-danger btn-sm">削除</button>
+                                    </td> <!-- Update and Delete buttons -->
+                                </tr>
+                                <tr>
+                                    <td>サンプル2</td>
+                                    <td>5</td>
+                                    <td>タイプB</td>
+                                    <td><span class="badge bg-danger">非公開</span></td>
+                                    <td>
+                                        <button type="button" class="btn btn-primary btn-sm me-2">更新</button>
+                                        <button type="button" class="btn btn-danger btn-sm">削除</button>
+                                    </td> <!-- Update and Delete buttons -->
+                                </tr>
+                                <tr>
+                                    <td>サンプル2</td>
+                                    <td>5</td>
+                                    <td>タイプB</td>
+                                    <td><span class="badge bg-danger">非公開</span></td>
+                                    <td>
+                                        <button type="button" class="btn btn-primary btn-sm me-2">更新</button>
+                                        <button type="button" class="btn btn-danger btn-sm">削除</button>
+                                    </td> <!-- Update and Delete buttons -->
+                                </tr>
+                                <tr>
+                                    <td>サンプル2</td>
+                                    <td>5</td>
+                                    <td>タイプB</td>
+                                    <td><span class="badge bg-danger">非公開</span></td>
+                                    <td>
+                                        <button type="button" class="btn btn-primary btn-sm me-2">更新</button>
+                                        <button type="button" class="btn btn-danger btn-sm">削除</button>
+                                    </td> <!-- Update and Delete buttons -->
+                                </tr>
+                                <tr>
+                                    <td>サンプル2</td>
+                                    <td>5</td>
+                                    <td>タイプB</td>
+                                    <td><span class="badge bg-danger">非公開</span></td>
+                                    <td>
+                                        <button type="button" class="btn btn-primary btn-sm me-2">更新</button>
+                                        <button type="button" class="btn btn-danger btn-sm">削除</button>
+                                    </td> <!-- Update and Delete buttons -->
+                                </tr>
+                                <tr>
+                                    <td>サンプル2</td>
+                                    <td>5</td>
+                                    <td>タイプB</td>
+                                    <td><span class="badge bg-danger">非公開</span></td>
+                                    <td>
+                                        <button type="button" class="btn btn-primary btn-sm me-2">更新</button>
+                                        <button type="button" class="btn btn-danger btn-sm">削除</button>
+                                    </td> <!-- Update and Delete buttons -->
+                                </tr>
+                                <tr>
+                                    <td>サンプル2</td>
+                                    <td>5</td>
+                                    <td>タイプB</td>
+                                    <td><span class="badge bg-danger">非公開</span></td>
+                                    <td>
+                                        <a type="button" href="edit.html" class="btn btn-primary btn-sm me-2">更新</a>
+                                        <a type="button" href="delete" data-bs-toggle="modal"
+                                            data-bs-target="#deleteModal" class="btn btn-danger btn-sm">削除</a>
+                                    </td> <!-- Update and Delete buttons -->
+                                </tr>
+                                <!-- More rows as needed -->
+                            </tbody>
+                        </table>
+
+                        <!-- Pagination -->
+                        <nav aria-label="Page navigation">
+                            <ul class="pagination justify-content-center">
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#" tabindex="-1">前へ</a>
+                                </li>
+                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item"><a class="page-link" href="#">次へ</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="border-wrapper">
+                <h2 class="text-center mb-4 fw-bold">月別売り上げ</h2>
+                <!-- Monthly Sales Section -->
+                <div class="sales-container mt-5">
+                    <form id="monthly-sales-form" class="mb-4">
+                        <div class="mb-3">
+                            <label for="monthlyDate" class="form-label">月を選択</label>
+                            <input type="text" id="monthlyDate" name="monthlyDate" class="form-control flatpickr-month"
+                                placeholder="YYYY-MM">
+                        </div>
+                        <button type="submit" class="btn btn-primary">売り上げを表示</button>
+                    </form>
+                    <div id="monthly-sales-list">
+
+                        <div id="daily-sales-list">
+                            <h2 class="text-center mb-4 fw-bold mt-3">Chart</h2>
+                            <!-- List of daily sales will be rendered here -->
+                            <div class="chart">
+                                <canvas id="chartMonthlySale"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="table-responsive">
+
+                            <h2 class="text-center mb-4 fw-bold mt-3">Table</h2>
+                            <table class="table table-bordered table-striped" id="dataTable">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">枠名</th>
+                                        <th scope="col">人数</th>
+                                        <th scope="col">タイプ</th>
+                                        <th scope="col">公開 / 非公開</th>
+                                        <th scope="col">アクション</th> <!-- New column header -->
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>サンプル1</td>
+                                        <td>10</td>
+                                        <td>タイプA</td>
+                                        <td><span class="badge bg-success">公開</span></td>
+                                        <td>
+                                            <button type="button" class="btn btn-primary btn-sm me-2">更新</button>
+                                            <button type="button" class="btn btn-danger btn-sm">削除</button>
+                                        </td> <!-- Update and Delete buttons -->
+                                    </tr>
+                                    <tr>
+                                        <td>サンプル2</td>
+                                        <td>5</td>
+                                        <td>タイプB</td>
+                                        <td><span class="badge bg-danger">非公開</span></td>
+                                        <td>
+                                            <button type="button" class="btn btn-primary btn-sm me-2">更新</button>
+                                            <button type="button" class="btn btn-danger btn-sm">削除</button>
+                                        </td> <!-- Update and Delete buttons -->
+                                    </tr>
+                                    <tr>
+                                        <td>サンプル2</td>
+                                        <td>5</td>
+                                        <td>タイプB</td>
+                                        <td><span class="badge bg-danger">非公開</span></td>
+                                        <td>
+                                            <button type="button" class="btn btn-primary btn-sm me-2">更新</button>
+                                            <button type="button" class="btn btn-danger btn-sm">削除</button>
+                                        </td> <!-- Update and Delete buttons -->
+                                    </tr>
+                                    <tr>
+                                        <td>サンプル2</td>
+                                        <td>5</td>
+                                        <td>タイプB</td>
+                                        <td><span class="badge bg-danger">非公開</span></td>
+                                        <td>
+                                            <button type="button" class="btn btn-primary btn-sm me-2">更新</button>
+                                            <button type="button" class="btn btn-danger btn-sm">削除</button>
+                                        </td> <!-- Update and Delete buttons -->
+                                    </tr>
+                                    <tr>
+                                        <td>サンプル2</td>
+                                        <td>5</td>
+                                        <td>タイプB</td>
+                                        <td><span class="badge bg-danger">非公開</span></td>
+                                        <td>
+                                            <button type="button" class="btn btn-primary btn-sm me-2">更新</button>
+                                            <button type="button" class="btn btn-danger btn-sm">削除</button>
+                                        </td> <!-- Update and Delete buttons -->
+                                    </tr>
+                                    <tr>
+                                        <td>サンプル2</td>
+                                        <td>5</td>
+                                        <td>タイプB</td>
+                                        <td><span class="badge bg-danger">非公開</span></td>
+                                        <td>
+                                            <button type="button" class="btn btn-primary btn-sm me-2">更新</button>
+                                            <button type="button" class="btn btn-danger btn-sm">削除</button>
+                                        </td> <!-- Update and Delete buttons -->
+                                    </tr>
+                                    <tr>
+                                        <td>サンプル2</td>
+                                        <td>5</td>
+                                        <td>タイプB</td>
+                                        <td><span class="badge bg-danger">非公開</span></td>
+                                        <td>
+                                            <a type="button" href="edit.html" class="btn btn-primary btn-sm me-2">更新</a>
+                                            <a type="button" href="delete" data-bs-toggle="modal"
+                                                data-bs-target="#deleteModal" class="btn btn-danger btn-sm">削除</a>
+                                        </td> <!-- Update and Delete buttons -->
+                                    </tr>
+                                    <!-- More rows as needed -->
+                                </tbody>
+                            </table>
+
+                            <!-- Pagination -->
+                            <nav aria-label="Page navigation">
+                                <ul class="pagination justify-content-center">
+                                    <li class="page-item disabled">
+                                        <a class="page-link" href="#" tabindex="-1">前へ</a>
+                                    </li>
+                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">次へ</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer class="bg-light text-dark pt-4">
+        <div class="container">
+            <div class="row footer-container">
+                <!-- Items in the Navigator -->
+                <div class="col-md-4">
+                    <h5>ナビゲーション項目</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="../report/index.html" class="text-dark">レポート </a></li>
+                        <li><a href="../setting/index.html" class="text-dark">マスター設定</a> </li>
+                        <li><a href="../frame/index.html" class="text-dark">枠設定</a> </li>
+                        <li><a href="../reminder/index.html" class="text-dark">予約通知設定</a> </li>
+                        <li>
+                            <a href="#" class="text-dark">ページ1</a>
+                            <ul class="list-unstyled">
+                                <li>サブページ1-1</li>
+                                <li>サブページ1-2</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="text-dark">ページ2</a>
+                            
+                            <ul class="list-unstyled">
+                                <li>サブページ2-1</li>
+                                <li>サブページ2-2</li>
+                            </ul>
+                        </li>
+                        <li><a href="#" class="text-dark">詳細</a></li>
+                    </ul>
+                </div>
+                <!-- About Us -->
+                <div class="col-md-4">
+                    <h5>私たちについて</h5>
+                    <p>私たちはウェブ開発のプロフェッショナルであり、最高のサービスを提供することを目指しています。</p>
+                </div>
+                <!-- How to Contact -->
+                <div class="col-md-4">
+                    <h5>お問い合わせ方法</h5>
+                    <ul class="list-unstyled">
+                        <li>Email: <a href="mailto:info@example.com" class="text-dark">info@example.com</a></li>
+                        <li>電話: 123-456-7890</li>
+                        <li>住所: 1234 Example Street, City, Country</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/bootstrap/bootstrap.bundle.min.js">
+    </script>
+    <script src="../assets/js/jquery-3.6.0.min.js"></script>
+    <script src="../assets/js/script.js"></script>
+    <script src="../assets/js/chartjs/chart.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script>
+        const mixedChart = new Chart(document.getElementById('chartDailySale'), {
+            type: 'bar',
+            data: {
+                datasets: [{
+                    label: 'Line Dataset',
+                    data: [0, 2, 3, 10],
+                    type: 'line',
+                    // this dataset is drawn on top
+                    order: 1
+                }],
+                labels: ['2024/08/12', '2024/08/12', '2024/08/14', '2024/08/15']
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                },
+            },
+            plugins: {
+                legend: { position: 'top', },
+                title: { display: true, text: '' }, // <-- title!
+            },
+        });
+
+        const reportMonthlySaleChart = new Chart(document.getElementById('chartMonthlySale'), {
+            type: 'bar',
+            data: {
+                datasets: [{
+                    label: 'Line Dataset',
+                    data: [0, 2, 3, 10],
+                    type: 'line',
+                    // this dataset is drawn on top
+                    order: 1,
+                    borderColor: 'rgb(255, 99, 132)',
+
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)'
+                }],
+                labels: ['January', 'February', 'March', 'April']
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                },
+            },
+        });
+
+        const date = flatpickr(".flatpickr-date", {
+            dateFormat: "Y-m-d",
+            defaultDate: "today"
+        });
+
+        const month = flatpickr(".flatpickr-month", {
+            dateFormat: "Y-m",
+            defaultDate: "today"
+        });
+    </script>
+</body>
+
+</html>

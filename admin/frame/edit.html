@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Page</title>
+    <link href="../assets/css/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/frame/edit.css">
+    <link href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/linearicons/style.css">
+</head>
+
+<body>
+    <header>
+        <!-- Navbar for Mobile -->
+        <nav class="navbar navbar-light bg-light fixed-top d-md-none">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <img src="../assets/images/Yet.png" alt="Logo" height="30">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
+                    aria-controls="menu" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </nav>
+
+        <div class="vertical-menu mobile" id="menu">
+            <div class="menu-item">
+                <a href="../report/index.html" class="active"><i class="lnr lnr-file-add mx-2"></i><span>レポート</span></a>
+                <a href="../setting/index.html" class=""><i class="lnr lnr-cog mx-2"></i><span>マスター設定</span></a>
+                <a href="../frame/index.html" class=""><i class="lnr lnr-frame-expand mx-2"></i><span>枠設定</span></a>
+                <a href="../reminder/index.html" class=""><i class="lnr lnr-alarm mx-2"></i><span>予約通知設定</span></a>
+                <div class="menu-item">
+                    <a href="#" class="menu-toggle active"><i class="lnr lnr-envelope mx-2"></i><span>ページ1</span> <i
+                            class="icon-submenu lnr lnr-chevron-left"></i></a>
+                    <div class="submenu sub-menu-active">
+                        <a href="#">サブページ1-1</a>
+                        <a href="#">サブページ1-2</a>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <a href="#" class="menu-toggle"><i class="lnr lnr-envelope mx-2"></i><span>ページ2</span> <i
+                            class="icon-submenu lnr lnr-chevron-left"></i></a>
+                    <div class="submenu">
+                        <a href="#">サブページ2-1</a>
+                        <a href="#">サブページ2-2</a>
+                    </div>
+                </div>
+                <a href="#"><i class="lnr lnr-envelope mx-2"></i><span>詳細</span></a>
+            </div>
+        </div>
+        <a href="#"><i class="lnr lnr-envelope mx-2"></i><span>詳細</span></a>
+        </div>
+
+        <!-- Vertical Menu -->
+        <div class="vertical-menu pc" id="">
+            <div class="logo">
+                <img src="../assets/images/Yet.png" alt="Logo" class="img-fluid" height="30">
+            </div>
+            <a href="../report/index.html" class="active"><i class="lnr lnr-file-add mx-2"></i><span>レポート</span></a>
+            <a href="../setting/index.html" class=""><i class="lnr lnr-cog mx-2"></i><span>マスター設定</span></a>
+            <a href="../frame/index.html" class=""><i class="lnr lnr-frame-expand mx-2"></i><span>枠設定</span></a>
+            <a href="../reminder/index.html" class=""><i class="lnr lnr-alarm mx-2"></i><span>予約通知設定</span></a>
+            <div class="menu-item">
+                <a href="#" class="menu-toggle active"><i class="lnr lnr-envelope mx-2"></i><span>ページ1</span> <i
+                        class="icon-submenu lnr lnr-chevron-left"></i></a>
+                <div class="submenu sub-menu-active">
+                    <a href="#">サブページ1-1</a>
+                    <a href="#">サブページ1-2</a>
+                </div>
+            </div>
+            <div class="menu-item">
+                <a href="#" class="menu-toggle"><i class="lnr lnr-envelope mx-2"></i><span>ページ2</span> <i
+                        class="icon-submenu lnr lnr-chevron-left"></i></a>
+                <div class="submenu">
+                    <a href="#">サブページ2-1</a>
+                    <a href="#">サブページ2-2</a>
+                </div>
+            </div>
+            <a href="#"><i class="lnr lnr-envelope mx-2"></i><span>詳細</span></a>
+        </div>
+    </header>
+
+
+    <!-- Content -->
+    <div class="content-wrapper">
+        <div class="mt-1 mb-5">
+            <!-- Breadcrumb -->
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">リストページ</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">編集ページ</li>
+                </ol>
+            </nav>
+            <div class="border-wrapper">
+                <div class="edit-header pt-3">
+                    <h2 class="text-center fw-bold">編集ページ</h2>
+                </div>
+
+                <!-- Edit Form -->
+                <form action="update.html" method="post">
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <label for="name" class="form-label fw-bold">枠名</label>
+                            <input type="text" id="name" name="name" class="form-control" value="Sample Name" required>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="people" class="form-label fw-bold">人数</label>
+                            <input type="number" id="people" name="people" class="form-control" value="10" required>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="type" class="form-label fw-bold">タイプ</label>
+                            <input type="text" id="type" name="type" class="form-control" value="Sample Type" required>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="time" class="form-label fw-bold">時間</label>
+                            <div class="row">
+                                <div class="col-md-6 form-group">
+                                    <label for="startTime" class="form-label fw-bold">開始時間</label>
+                                    <input type="time" id="startTime" name="startTime" class="form-control"
+                                        value="08:00" required>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label for="endTime" class="form-label fw-bold">終了時間</label>
+                                    <input type="time" id="endTime" name="endTime" class="form-control" value="17:00"
+                                        required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="repeat" class="form-label fw-bold">繰り返し</label>
+                            <input type="text" id="repeat" name="repeat" class="form-control" value="毎日" required>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="date" class="form-label fw-bold">曜日（日～月）</label>
+                            <input type="date" id="date" name="date" class="form-control" value="2024-08-16" required>
+                        </div>
+
+                        <div class="col-md-6 form-group">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="holiday" name="holiday">
+                                <label class="form-check-label" for="holiday">祝日</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label for="description" class="form-label fw-bold">説明</label>
+                            <textarea id="description" name="description" class="form-control" rows="3"
+                                required>This is a sample description.</textarea>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="amountSun" class="form-label fw-bold">曜日別金額設定 - 日曜日</label>
+                            <input type="number" id="amountSun" name="amountSun" class="form-control" value="0"
+                                required>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="amountMon" class="form-label fw-bold">曜日別金額設定 - 月曜日</label>
+                            <input type="number" id="amountMon" name="amountMon" class="form-control" value="0"
+                                required>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="amountTue" class="form-label fw-bold">曜日別金額設定 - 火曜日</label>
+                            <input type="number" id="amountTue" name="amountTue" class="form-control" value="0"
+                                required>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="amountWed" class="form-label fw-bold">曜日別金額設定 - 水曜日</label>
+                            <input type="number" id="amountWed" name="amountWed" class="form-control" value="0"
+                                required>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="amountThu" class="form-label fw-bold">曜日別金額設定 - 木曜日</label>
+                            <input type="number" id="amountThu" name="amountThu" class="form-control" value="0"
+                                required>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="amountFri" class="form-label fw-bold">曜日別金額設定 - 金曜日</label>
+                            <input type="number" id="amountFri" name="amountFri" class="form-control" value="0"
+                                required>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="amountSat" class="form-label fw-bold">曜日別金額設定 - 土曜日</label>
+                            <input type="number" id="amountSat" name="amountSat" class="form-control" value="0"
+                                required>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-end mt-4">
+                        <button type="submit" class="btn btn-primary btn-action">保存</button>
+                        <a href="detail.html" class="btn btn-secondary">キャンセル</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer class="bg-light text-dark pt-4">
+        <div class="container">
+            <div class="row footer-container">
+                <!-- Items in the Navigator -->
+                <div class="col-md-4">
+                    <h5>ナビゲーション項目</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="../report/index.html" class="text-dark">レポート </a></li>
+                        <li><a href="../setting/index.html" class="text-dark">マスター設定</a> </li>
+                        <li><a href="../frame/index.html" class="text-dark">枠設定</a> </li>
+                        <li><a href="../reminder/index.html" class="text-dark">予約通知設定</a> </li>
+                        <li>
+                            <a href="#" class="text-dark">ページ1</a>
+                            <ul class="list-unstyled">
+                                <li>サブページ1-1</li>
+                                <li>サブページ1-2</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="text-dark">ページ2</a>
+                            
+                            <ul class="list-unstyled">
+                                <li>サブページ2-1</li>
+                                <li>サブページ2-2</li>
+                            </ul>
+                        </li>
+                        <li><a href="#" class="text-dark">詳細</a></li>
+                    </ul>
+                </div>
+                <!-- About Us -->
+                <div class="col-md-4">
+                    <h5>私たちについて</h5>
+                    <p>私たちはウェブ開発のプロフェッショナルであり、最高のサービスを提供することを目指しています。</p>
+                </div>
+                <!-- How to Contact -->
+                <div class="col-md-4">
+                    <h5>お問い合わせ方法</h5>
+                    <ul class="list-unstyled">
+                        <li>Email: <a href="mailto:info@example.com" class="text-dark">info@example.com</a></li>
+                        <li>電話: 123-456-7890</li>
+                        <li>住所: 1234 Example Street, City, Country</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
+    <script src="../assets/js/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    </script>
+    <script src="../assets/js/jquery-3.6.0.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            flatpickr('#date', {
+                dateFormat: "Y-m-d"
+            });
+
+            flatpickr('#startTime', {
+                enableTime: true,
+                noCalendar: true,
+                dateFormat: "H:i",
+                time_24hr: true
+            });
+
+            flatpickr('#endTime', {
+                enableTime: true,
+                noCalendar: true,
+                dateFormat: "H:i",
+                time_24hr: true
+            });
+        });
+    </script>
+
+    <script src="../assets/js/script.js"></script>
+</body>
+
+</html>
