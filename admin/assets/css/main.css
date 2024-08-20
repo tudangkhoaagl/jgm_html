@@ -1,0 +1,274 @@
+
+html, body {
+    height: 100%;
+    margin: 0;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+body {
+    display: flex;
+    flex-direction: column;
+}
+header {
+    background-color: #6497b1;
+    color: white;
+    padding: 5px 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    align-items: center;
+    justify-content: space-between;
+}
+.main-content {
+    display: flex;
+    margin-top: 60px; /* Adjust to account for header height */
+    transition: margin-left 0.3s ease, width 0.3s ease; /* Smooth transition for margin and width */
+}
+.sidebar {
+    width: 250px;
+    background-color: #fff;
+    color: #000;
+    position: fixed;
+    top: 64px; /* Start below the header */
+    left: 0;
+    height: calc(100vh - 60px); /* Full height minus header height */
+    z-index: 1000;
+    transition: transform 0.3s ease;
+    transform: translateX(-250px); /* Initially hidden */
+    overflow-y: auto;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+}
+.sidebar.show {
+    transform: translateX(0); /* Show on toggle */
+}
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+.sidebar ul li a {
+    display: block;
+    padding: 10px 20px;
+    color: #000;
+    text-decoration: none;
+}
+.sidebar ul li a:hover {
+    background-color: #6497b1;
+}
+.content-wrapper {
+    flex: 1;
+    padding: 20px;
+    transition: margin-left 0.3s ease, width 0.3s ease;
+}
+.content-wrapper.expanded {
+    margin-left: 250px; /* Adjust for sidebar width */
+}
+.footer {
+    background-color: #6497b1;
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+    width: 100%;
+    position: relative;
+    margin-top: auto; /* Pushes footer to the bottom */
+}
+.footer h5 {
+    margin-bottom: 20px;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+.footer p {
+    margin-bottom: 10px;
+}
+.footer a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    margin: 5px 0;
+}
+.footer a:hover {
+    text-decoration: underline;
+}
+#menu-toggle {
+    display: block; /* Show on both mobile and desktop */
+    left: 20px;
+    top: 15px;
+    z-index: 1001;
+    cursor: pointer;
+}
+
+.bottom-nav {
+    background-color: #6497b1;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000;
+}
+.bottom-nav a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+}
+.bottom-nav a:hover {
+    text-decoration: underline;
+}
+@media (min-width: 769px) {
+    .content-wrapper {
+        margin-left: 0; /* No offset on desktop */
+    }
+}
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-250px); /* Hidden on mobile */
+    }
+    .sidebar.show {
+        transform: translateX(0); /* Show on toggle */
+    }
+    .content-wrapper {
+        margin-left: 0; /* No offset on mobile */
+    }
+}
+
+.calendar {
+    position: relative;
+    padding-top: 6px;
+}
+
+.calendar .btn {
+    min-width: 50px;
+    max-width: 50px;
+    background-color: #1e6588;
+    color: white;
+    font-weight: 500;
+    font-size: 18px;
+    border-radius: unset;
+}
+
+.calendar .btn.btn-dot {
+    position: relative;
+}
+
+.calendar .btn.btn-dot {
+    border-left: #fff solid 1px;
+}
+
+.calendar .btn.arrow-left {
+    border-radius: 4px 0px 0px 4px;
+}
+.calendar .btn.arrow-right {
+    border-radius: 0px 4px 4px 0px;
+}
+
+.calendar .btn.btn-dot span {
+    font-weight: 100;
+    height: 10px;
+    width: 10px;
+    background-color: #fff;
+    border-radius: 50%;
+    display: inline-block;
+    position: absolute;
+    top: 40%;
+    left: 38%;
+}
+
+.calendar .date-box {
+    background-color: #fff;
+    color: #000;
+    font-weight: 500;
+    max-height: 40px;
+    padding-top: 7px;
+    flex-grow: 1;
+}
+
+header .logo {
+    font-weight: 700;
+    font-size: large;
+    padding-top: 0.3rem;
+}
+header .menu .menu-item {
+    padding: 5px 0
+}
+
+header .menu .menu-item:not(.logo) {
+    border-right: #fff solid 1px;
+    padding-right: 10px;
+}
+
+header .menu .menu-item .hamburger {
+    font-size: 20px;
+}
+
+header .menu .menu-item:is(.logo) {
+    padding-top: 14px;
+    padding-left: 10px;
+}
+
+.menu-url {
+    max-width: 25%;
+    height: auto;
+}
+
+header .main-menu {
+    padding-top: 5px;
+}
+
+header .main-menu p.menu-text {
+    font-size: 13px;
+    margin-bottom: unset;
+    font-weight: 700;
+}
+header .main-menu a {
+    text-decoration: none;
+}
+
+.sidebar .sidebar-item .span-type:before {
+    content: 'a';
+}
+
+.tag--common {
+    color: rgb(188, 174, 138);
+    padding: 0 5px;
+    border: 1px solid rgb(188, 174, 138);
+}
+
+.sidebar .sidebar-list-item:last-child {
+    border-bottom-width: 1px;
+}
+
+.sidebar .sidebar-list-item {
+    padding: unset;
+}
+
+.sidebar .sidebar-list-item .sidebar-item .item-detail {
+    padding: 10px 10px 10px;
+    flex-grow: 2;
+}
+
+.sidebar .sidebar-list-item .sidebar-item .item-tag {
+    font-size: 12px;
+    background-color: rgba(255, 0, 0, 0.288);
+}
+
+.sidebar .sidebar-list-item .sidebar-item .item-tag p {
+    padding: 5px;
+    margin-bottom: unset;
+}
+
+.sidebar .sidebar-list-item .sidebar-item .item-tag .title {
+    width: 20px;
+}
+
+.sidebar .sidebar-list-item .title::before {
+    position: relative;
+}
+
+.sidebar .sidebar-list-item .title::before {
+    content: "\2022";
+    position: absolute;
+    left: 10px;
+    top: 5px;
+    color: black;
+    font-size: 1.5rem;
+}
