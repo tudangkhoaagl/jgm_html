@@ -1,13 +1,16 @@
-
-html, body {
+html,
+body {
     height: 100%;
     margin: 0;
-    overflow-x: hidden; /* Prevent horizontal scroll */
+    overflow-x: hidden;
+    /* Prevent horizontal scroll */
 }
+
 body {
     display: flex;
     flex-direction: column;
 }
+
 header {
     background-color: #6497b1;
     color: white;
@@ -19,77 +22,99 @@ header {
     align-items: center;
     justify-content: space-between;
 }
+
 .main-content {
     display: flex;
-    margin-top: 60px; /* Adjust to account for header height */
-    transition: margin-left 0.3s ease, width 0.3s ease; /* Smooth transition for margin and width */
+    margin-top: 20px;
+    /* Adjust to account for header height */
+    transition: margin-left 0.3s ease, width 0.3s ease;
+    /* Smooth transition for margin and width */
 }
+
 .sidebar {
     width: 250px;
     background-color: #fff;
     color: #000;
     position: fixed;
-    top: 64px; /* Start below the header */
+    top: 64px;
+    /* Start below the header */
     left: 0;
-    height: calc(100vh - 60px); /* Full height minus header height */
+    height: calc(100vh - 60px);
+    /* Full height minus header height */
     z-index: 1000;
     transition: transform 0.3s ease;
-    transform: translateX(-250px); /* Initially hidden */
+    transform: translateX(-250px);
+    /* Initially hidden */
     overflow-y: auto;
     box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
 }
+
 .sidebar.show {
-    transform: translateX(0); /* Show on toggle */
+    transform: translateX(0);
+    /* Show on toggle */
 }
+
 .sidebar ul {
     list-style-type: none;
     padding: 0;
 }
+
 .sidebar ul li a {
     display: block;
     padding: 10px 20px;
     color: #000;
     text-decoration: none;
 }
+
 .sidebar ul li a:hover {
     background-color: #6497b1;
 }
+
 .content-wrapper {
     flex: 1;
     padding: 20px;
     transition: margin-left 0.3s ease, width 0.3s ease;
 }
+
 .content-wrapper.expanded {
-    margin-left: 250px; /* Adjust for sidebar width */
+    margin-left: 227px;
+    /* Adjust for sidebar width */
 }
+
 .footer {
-    background-color: #6497b1;
+    background-color: #080e1193;
     color: white;
     text-align: center;
-    padding: 40px 20px;
     width: 100%;
     position: relative;
-    margin-top: auto; /* Pushes footer to the bottom */
+    margin-top: auto;
+    z-index: 100000;
 }
+
 .footer h5 {
     margin-bottom: 20px;
     font-size: 1.25rem;
     font-weight: 600;
 }
+
 .footer p {
     margin-bottom: 10px;
 }
+
 .footer a {
     color: white;
     text-decoration: none;
     display: block;
     margin: 5px 0;
 }
+
 .footer a:hover {
     text-decoration: underline;
 }
+
 #menu-toggle {
-    display: block; /* Show on both mobile and desktop */
+    display: block;
+    /* Show on both mobile and desktop */
     left: 20px;
     top: 15px;
     z-index: 1001;
@@ -106,28 +131,38 @@ header {
     width: 100%;
     z-index: 1000;
 }
+
 .bottom-nav a {
     color: white;
     margin: 0 10px;
     text-decoration: none;
 }
+
 .bottom-nav a:hover {
     text-decoration: underline;
 }
+
 @media (min-width: 769px) {
     .content-wrapper {
-        margin-left: 0; /* No offset on desktop */
+        margin-left: 0;
+        /* No offset on desktop */
     }
 }
+
 @media (max-width: 768px) {
     .sidebar {
-        transform: translateX(-250px); /* Hidden on mobile */
+        transform: translateX(-250px);
+        /* Hidden on mobile */
     }
+
     .sidebar.show {
-        transform: translateX(0); /* Show on toggle */
+        transform: translateX(0);
+        /* Show on toggle */
     }
+
     .content-wrapper {
-        margin-left: 0; /* No offset on mobile */
+        margin-left: 0;
+        /* No offset on mobile */
     }
 }
 
@@ -157,6 +192,7 @@ header {
 .calendar .btn.arrow-left {
     border-radius: 4px 0px 0px 4px;
 }
+
 .calendar .btn.arrow-right {
     border-radius: 0px 4px 4px 0px;
 }
@@ -187,6 +223,7 @@ header .logo {
     font-size: large;
     padding-top: 0.3rem;
 }
+
 header .menu .menu-item {
     padding: 5px 0
 }
@@ -219,6 +256,7 @@ header .main-menu p.menu-text {
     margin-bottom: unset;
     font-weight: 700;
 }
+
 header .main-menu a {
     text-decoration: none;
 }
@@ -271,4 +309,162 @@ header .main-menu a {
     top: 5px;
     color: black;
     font-size: 1.5rem;
+}
+
+.time-bar {
+    background-color: #f8f9fa;
+    width: 100%;
+    /* text-align: center; */
+    position: relative;
+    top: 60px;
+    /* Position just below the header */
+    z-index: 999;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow-y: scroll;
+    white-space: nowrap;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;
+}
+
+.time-bar::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+}
+
+.time-bar .hour {
+    display: inline-block;
+    width: 245px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #343a40;
+    border-left: 1px solid #ddd;
+    padding: 5px 0;
+}
+
+.time-bar .hour:first-child {
+    border-left: none;
+}
+
+.red-line {
+    position: fixed;
+    width: 2px;
+    background: red;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    transform: translateX(-1px); /* Center the line */
+    z-index: 10;
+    left: 251px;
+}
+
+.fc-resource-area {
+    display: none;
+}
+
+.fc-theme-standard td {
+    border: unset;
+}
+
+.fc .fc-timeline-slot-minor {
+    border-style: unset;
+}
+
+.fc .fc-resource-timeline-divider {
+    cursor: unset;
+    width: 3px;
+}
+
+.fc .fc-cell-shaded, .fc .fc-day-disabled {
+    background: unset;
+}
+
+.fc-scrollgrid.fc-scrollgrid-liquid {
+    border: unset;
+}
+
+.fc-timeline-header > table {
+    border: 1px solid;
+}
+
+.fc .fc-timeline-slot-cushion {
+    padding: 10px 10px;
+    text-decoration: none;
+    color: #000;
+    font-weight: 500;
+}
+
+.custom-event-list-item {
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.fc-h-event .fc-event-main {
+    color:inherit
+}
+
+.reservation-style-1 {
+    height: 10px;
+    width: 10px;
+    border: 1px solid red;
+    background: currentColor;
+    border-radius: 50%;
+    position: relative;
+    top: 8px;
+}
+
+.reservation-style-2 {
+    height: 10px;
+    width: 10px;
+    border: 1px solid rgba(0, 128, 0, 0.521);
+    background: rgba(0, 128, 0, 0.521);
+    border-radius: 50%;
+    position: relative;
+    top: 8px;
+}
+
+.reservation-style-3 {
+    height: 10px;
+    width: 10px;
+    border: 1px solid rgba(0, 30, 128, 0.534);
+    background: rgba(0, 30, 128, 0.534);
+    border-radius: 50%;
+    position: relative;
+    top: 8px;
+}
+
+.mobile {
+    display: none;
+}
+
+.fc-scroller-liquid-absolute {
+    overflow: hidden !important;
+}
+
+.fc-license-message {
+    display: none;
+}
+
+@media (max-width: 1280px) {
+    .mobile {
+        display: block;
+    }
+
+    .desktop {
+        display: none;
+    }
+    
+    .mobile-flex {
+        display: flex;
+    }
+}
+
+header .logo{
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 300px;
+}
+
+li.list-group-item.group-item {
+    padding: 10px 107px;
 }

@@ -8,6 +8,9 @@
     <link href="../assets/css/bootstrap/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/main.css">
     <link rel="stylesheet" href="../assets/linearicons/style.css">
+    <link rel="stylesheet" href="https://uicdn.toast.com/calendar/latest/toastui-calendar.min.css" />
+
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar-scheduler@6.1.15/index.global.min.js'></script>
 </head>
 
 <body>
@@ -26,7 +29,7 @@
                     <span>かもめきっちん東京駅八重</span>
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 desktop">
                 <div class="calendar d-flex">
                     <div class="arrow-left btn">
                         <span class="arrow left">&lt;</span>
@@ -43,7 +46,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 row main-menu">
+            <div class="col-md-6 row main-menu desktop">
                 <div class="col-md-2 text-center">
                     <a class="main-menu-item text-white link-underline-opacity-0" href="">
                         <img src="../assets/images/home.png" class="menu-url" alt="">
@@ -84,10 +87,30 @@
     </header>
 
     <!-- Main Content and Sidebar -->
-    <div class="main-content">
+    <div class="main-content mobile-flex">
+        <div class="col-md-3 mobile">
+            <div class="calendar d-flex">
+                <div class="arrow-left btn">
+                    <span class="arrow left">&lt;</span>
+                </div>
+                <div class="btn btn-dot">
+                    <span class="arrow dot"></span>
+                </div>
+                <div class="date-box text-center">
+                    <span class="date-text">📅</span>
+                    <span class="date-text">9/26(月)</span>
+                </div>
+                <div class="btn arrow-right">
+                    <span class="arrow right">&gt;</span>
+                </div>
+            </div>
+        </div>
         <!-- Sidebar -->
         <nav id="sidebar" class="sidebar">
             <ul class="list-group list-group-flush">
+                <li class="list-group-item group-item">
+                    TEST
+                </li>
                 <li class="list-group-item sidebar-list-item">
                     <div class="sidebar-item d-flex">
                         <div class="item-detail">
@@ -174,8 +197,7 @@
         <!-- Content Wrapper -->
         <div id="content" class="content-wrapper">
             <!-- Your content here -->
-            <h2>Welcome to My Application</h2>
-            <p>This is the content area.</p>
+            <div id="calendar" style="height: 800px"></div>
         </div>
     </div>
 
@@ -183,22 +205,11 @@
     <footer class="footer">
         <div class="container">
             <div class="row">
-                <div class="col-sm">
-                    <h5>Navigator</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#">Dashboard</a></li>
-                        <li><a href="#">Settings</a></li>
-                        <li><a href="#">Reports</a></li>
-                    </ul>
-                </div>
-                <div class="col-sm">
-                    <h5>About Us</h5>
-                    <p>Information about the company.</p>
-                </div>
-                <div class="col-sm">
-                    <h5>How to Contact</h5>
-                    <p>Email: example@example.com</p>
-                </div>
+                <div class="d-flex flex-row-reverse">
+                    <div class="p-2 row"><div class="col-md-1"> <div class="reservation-style-1 "></div></div><div class="col-md-9">Flex item 1</div></div>
+                    <div class="p-2 row"><div class="col-md-1"> <div class="reservation-style-2 "></div></div><div class="col-md-9">Flex item 1</div></div>
+                    <div class="p-2 row"><div class="col-md-1"> <div class="reservation-style-3 "></div></div><div class="col-md-9">Flex item 1</div></div>
+                  </div>
             </div>
         </div>
     </footer>
@@ -219,6 +230,88 @@
                 $('#sidebar').toggleClass('show');
                 $('.content-wrapper').toggleClass('expanded');
             });
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+            var calendarEl = document.getElementById('calendar');
+
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                timeZone: 'UTC',
+                initialView: 'resourceTimelineDay',
+                aspectRatio: 1.5,
+                nowIndicator: true,
+                headerToolbar: {
+                    left: false,
+                    center: false,
+                    right: false
+                },
+                resources: [
+                    { id: 'a', title: 'Resource A' },
+                    { id: 'b', title: 'Resource B' }
+                ],
+                events: [
+                    {
+                        title: 'Event 1', 
+                        start: '2024-08-21T10:00:00',
+                        end: '2024-08-21T14:00:00',
+                        resourceId: 'a',
+                        backgroundColor: '#fff', // Color for this event
+                        borderColor: '#ff5733',
+                        extendedProps: { color: '#000' },
+                        serviceData: {
+                            food: 'a',
+                            hotel: 'b'
+                        }
+                    },
+                    { title: 'Event 2', start: '2024-08-21T12:00:00', 
+                    end: '2024-08-21T16:00:00', resourceId: 'b' }
+                ],
+                timeFormat: 'h:mm',
+                resourceAreaWidth: 0, // Hide the resource area column
+                resourceAreaHeaderContent: false,
+                views: {
+                    resourceTimelineDay: {
+                        titleFormat: { year: 'numeric', month: 'short', day: 'numeric' },
+                        slotLabelFormat: { hour: '2-digit', minute: '2-digit', meridiem: false },
+                        eventContent: function(arg, info) {
+                    // Customize the content of events in this view
+                            let { event } = arg;
+                            let services = ''
+                            let serviceData = event.extendedProps.serviceData ?? []
+                            Object.keys(serviceData).forEach(key => {
+                                services += `<div class="col-md-${ Math.ceil(12/Object.keys(serviceData).length) }">${serviceData[key]}</div>`
+                            });
+                            console.log(services)
+                            return {
+                                html: `<div class="custom-event-list-item row">
+                                            <div class="col-sm-6">
+                                                ${event.start.toLocaleString()}<br>
+                                                ${event.title}<br>
+                                            </div>
+                                            <div class="col-sm-6  text-end">
+                                                <div class="round">a</div>
+                                                <div class="row">
+                                                    ${services}
+                                                </div>
+                                            </div>
+                                    </div>`
+                            };
+                        }
+                    },
+                    timeGridWeek: {
+                        titleFormat: { year: 'numeric', month: 'short', day: 'numeric' },
+                        slotLabelFormat: { hour: '2-digit', minute: '2-digit', meridiem: true }
+                    }
+                },
+                eventDidMount: function(info) {
+                    // Apply CSS class for additional styling
+                    info.el.classList.add('rounded');
+                    let event = info.event;
+                    let backgroundColor = event.extendedProps.color || '#fff'; // Default color if none is set
+                    info.el.style.color = backgroundColor;
+                }
+            });
+
+            calendar.render();
         });
     </script>
 
