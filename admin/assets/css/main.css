@@ -122,18 +122,20 @@ header {
 }
 
 .bottom-nav {
-    background-color: #6497b1;
-    color: white;
+    border-top: 1px solid rgba(0, 0, 0, 0.171);
+    background-color: #fff;
+    color: rgb(148, 148, 148);
     text-align: center;
     padding: 10px 0;
     position: fixed;
     bottom: 0;
     width: 100%;
     z-index: 1000;
+    color: ;
 }
 
 .bottom-nav a {
-    color: white;
+    color: rgb(100, 100, 100);
     margin: 0 10px;
     text-decoration: none;
 }
@@ -322,12 +324,14 @@ header .main-menu a {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     overflow-y: scroll;
     white-space: nowrap;
-    scrollbar-width: none; /* Firefox */
+    scrollbar-width: none;
+    /* Firefox */
     -ms-overflow-style: none;
 }
 
 .time-bar::-webkit-scrollbar {
-    display: none; /* Safari and Chrome */
+    display: none;
+    /* Safari and Chrome */
 }
 
 .time-bar .hour {
@@ -351,7 +355,8 @@ header .main-menu a {
     top: 0;
     bottom: 0;
     left: 0;
-    transform: translateX(-1px); /* Center the line */
+    transform: translateX(-1px);
+    /* Center the line */
     z-index: 10;
     left: 251px;
 }
@@ -373,7 +378,8 @@ header .main-menu a {
     width: 3px;
 }
 
-.fc .fc-cell-shaded, .fc .fc-day-disabled {
+.fc .fc-cell-shaded,
+.fc .fc-day-disabled {
     background: unset;
 }
 
@@ -381,7 +387,7 @@ header .main-menu a {
     border: unset;
 }
 
-.fc-timeline-header > table {
+.fc-timeline-header>table {
     border: 1px solid;
 }
 
@@ -398,7 +404,7 @@ header .main-menu a {
 }
 
 .fc-h-event .fc-event-main {
-    color:inherit
+    color: inherit
 }
 
 .reservation-style-1 {
@@ -451,10 +457,11 @@ header .main-menu a {
     .desktop {
         display: none;
     }
-    
+
     .mobile-flex {
         display: flow-root;
     }
+
     .main-content.mobile-flex {
         margin-top: 58px;
     }
@@ -468,11 +475,11 @@ header .main-menu a {
         font-size: 18px;
         border-radius: unset;
     }
-    
+
     .mobile .calendar .btn.btn-dot {
         position: relative;
     }
-    
+
     .mobile .calendar .btn.btn-dot {
         border-left: unset;
     }
@@ -480,7 +487,7 @@ header .main-menu a {
     .mobile .calendar .btn {
         border: 1px solid black;
     }
-    
+
     .mobile .calendar .btn.btn-dot span {
         font-weight: 100;
         height: 10px;
@@ -492,21 +499,40 @@ header .main-menu a {
         top: 40%;
         left: 38%;
     }
-    
+
     .mobile .calendar .date-box {
         background-color: #fff;
         color: #000;
         font-weight: 500;
-        max-height: 40px;
-        padding-top: 10px;
+        max-height: 105px;
+        padding-top: 8px;
         flex-grow: 1;
-        height: 20px;
+        height: 46px;
         border-top: 1px solid black;
         border-bottom: 1px solid black;
     }
+
+    .mobile .calendar {
+        position: relative;
+        padding-top: 26px;
+    }
+
+    .mobile .reservation-title-style-2 {
+        border: 1px solid rgba(0, 128, 0, 0.521);
+        background: rgba(0, 128, 0, 0.74);
+        border-radius: 4px;
+        color: #fff;
+    }
+
+    .mobile .category .category-item .category-item-list {}
+
+    .reservation-service {
+        padding-left: 10px;
+        border-left: 1px solid black;
+    }
 }
 
-header .logo{
+header .logo {
     display: inline-block;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -516,4 +542,54 @@ header .logo{
 
 li.list-group-item.group-item {
     padding: 10px 107px;
+}
+
+.reservation-detail .detail {
+    padding-bottom: 13px;
+}
+
+.scroll-container {
+    display: flex;
+    overflow-x: auto;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 10px;
+    cursor: grab;
+    /* Change cursor to indicate draggable area */
+}
+
+.scroll-container .category-item {
+    padding: 3px 20px;
+    margin-right: 10px;
+    white-space: nowrap;
+    border-radius: 40px;
+    font-weight: 500;
+}
+
+.category-item:last-child {
+    margin-right: 0;
+}
+
+.category-item-scroll-1 {
+    background-color: #ee6046;
+    border: 2px solid #ee6046;
+    color: #fff;
+}
+
+.category-item-scroll-2 {
+    background-color: #ffffff;
+    color: #ee6046;
+    border: 2px solid #ee6046;
+}
+
+.category-item-scroll-3 {
+    background-color: #ffffff;
+    color: #feb4e9;
+    border: 2px solid #feb4e9;
+}
+
+.category-item-scroll-4 {
+    background-color: #43ab78;
+    color: #fff;
+    border: 2px solid #43ab78;
 }

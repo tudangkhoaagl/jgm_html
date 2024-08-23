@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://uicdn.toast.com/calendar/latest/toastui-calendar.min.css" />
 
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar-scheduler@6.1.15/index.global.min.js'></script>
+    <link rel="stylesheet" href="../assets/linearicons/style.css">
 </head>
 
 <body>
@@ -88,7 +89,7 @@
 
     <!-- Main Content and Sidebar -->
     <div class="main-content mobile-flex">
-        <div class="col-md-3 mobile">
+        <div class="mobile">
             <div class="calendar d-flex">
                 <div class="arrow-left btn">
                     <span class="arrow left">&lt;</span>
@@ -197,26 +198,315 @@
         <!-- Content Wrapper -->
         <div id="content" class="content-wrapper">
             <!-- Your content here -->
-            <div id="calendar" style="height: 800px"></div>
+            <div id="calendar" class="desktop" style="height: 800px"></div>
+            <div class="mobile">
+                <div id="scroll-container" class="scroll-container">
+                    <div class="category-item category-item-scroll-1">Category 1</div>
+                    <div class="category-item category-item-scroll-2">Category 2</div>
+                    <div class="category-item category-item-scroll-3">Category 3</div>
+                    <div class="category-item category-item-scroll-4">Category 4</div>
+                    <div class="category-item category-item-scroll-1">Category 5</div>
+                    <div class="category-item category-item-scroll-2">Category 6</div>
+                </div>
+                <div class="card mb-3">
+                    <div class="card-body reservation">
+                        <div class="row reservation-introdution">
+                            <div class="col-md-4 col-sm-4 col-4">
+                                <div class="">
+                                    <p class="title reservation-title-style-2 text-center">aasda</p>
+                                </div>
+                                <div class="row category-item text-center">
+                                    <p class="category-item-list col-md-2 col-sm-2 col-2 mb-0">a</p>
+                                    <p class="category-item-list col-md-2 col-sm-2 col-2 mb-0">b</p>
+                                    <p class="category-item-list col-md-2 col-sm-2 col-2 mb-0">c</p>
+                                    <p class="category-item-list col-md-2 col-sm-2 col-2 mb-0">d</p>
+                                    <p class="category-item-list col-md-2 col-sm-2 col-2 mb-0">d</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-8 col-sm-8 col-8">
+                                <div class="time">
+                                    <p class="title"><span class="lnr lnr-dinner pl-0"></span> losem inside</p>
+                                </div>
+                                <div class="title">
+                                    <p><span class="lnr lnr-construction"></span> losem inside</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row reservation-detail">
+                            <div class="col-md-4 col-sm-4 col-4 d-flex align-items-end detail">
+                                <div>
+                                    <div>asdasdasasasdasd</div>
+                                    <div>20-17-2024</div>
+                                </div>
+                            </div>
+                            <div class="col-md-8 col-sm-8 col-8">
+                                <div class="reservation-service">
+                                    <div class="time">
+                                        <div class="food">
+                                            <p class="title"><span class="lnr lnr-dinner pl-0"></span> losem inside</p>
+                                        </div>
+                                    </div>
+                                    <div class="title">
+                                        <p><span class="lnr lnr-chart-bars"></span> losem inside</p>
+                                    </div>
+
+
+                                    <div class="title">
+                                        <p><span class="lnr lnr-file-add"></span> losem inside</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mb-3">
+                    <div class="card-body reservation">
+                        <div class="row reservation-introdution">
+                            <div class="col-md-4 col-sm-4 col-4">
+                                <div class="">
+                                    <p class="title reservation-title-style-2 text-center">aasda</p>
+                                </div>
+                                <div class="row category-item text-center">
+                                    <p class="category-item-list col-md-2 col-sm-2 col-2 mb-0">a</p>
+                                    <p class="category-item-list col-md-2 col-sm-2 col-2 mb-0">b</p>
+                                    <p class="category-item-list col-md-2 col-sm-2 col-2 mb-0">c</p>
+                                    <p class="category-item-list col-md-2 col-sm-2 col-2 mb-0">d</p>
+                                    <p class="category-item-list col-md-2 col-sm-2 col-2 mb-0">d</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-8 col-sm-8 col-8">
+                                <div class="time">
+                                    <p class="title"><span class="lnr lnr-dinner pl-0"></span> losem inside</p>
+                                </div>
+                                <div class="title">
+                                    <p><span class="lnr lnr-construction"></span> losem inside</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row reservation-detail">
+                            <div class="col-md-4 col-sm-4 col-4 d-flex align-items-end detail">
+                                <div>
+                                    <div>asdasdasasasdasd</div>
+                                    <div>20-17-2024</div>
+                                </div>
+                            </div>
+                            <div class="col-md-8 col-sm-8 col-8">
+                                <div class="reservation-service">
+                                    <div class="time">
+                                        <div class="food">
+                                            <p class="title"><span class="lnr lnr-dinner pl-0"></span> losem inside</p>
+                                        </div>
+                                    </div>
+                                    <div class="title">
+                                        <p><span class="lnr lnr-chart-bars"></span> losem inside</p>
+                                    </div>
+
+
+                                    <div class="title">
+                                        <p><span class="lnr lnr-file-add"></span> losem inside</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mb-3">
+                    <div class="card-body reservation">
+                        <div class="row reservation-introdution">
+                            <div class="col-md-4 col-sm-4 col-4">
+                                <div class="">
+                                    <p class="title reservation-title-style-2 text-center">aasda</p>
+                                </div>
+                                <div class="row category-item text-center">
+                                    <p class="category-item-list col-md-2 col-sm-2 col-2 mb-0">a</p>
+                                    <p class="category-item-list col-md-2 col-sm-2 col-2 mb-0">b</p>
+                                    <p class="category-item-list col-md-2 col-sm-2 col-2 mb-0">c</p>
+                                    <p class="category-item-list col-md-2 col-sm-2 col-2 mb-0">d</p>
+                                    <p class="category-item-list col-md-2 col-sm-2 col-2 mb-0">d</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-8 col-sm-8 col-8">
+                                <div class="time">
+                                    <p class="title"><span class="lnr lnr-dinner pl-0"></span> losem inside</p>
+                                </div>
+                                <div class="title">
+                                    <p><span class="lnr lnr-construction"></span> losem inside</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row reservation-detail">
+                            <div class="col-md-4 col-sm-4 col-4 d-flex align-items-end detail">
+                                <div>
+                                    <div>asdasdasasasdasd</div>
+                                    <div>20-17-2024</div>
+                                </div>
+                            </div>
+                            <div class="col-md-8 col-sm-8 col-8">
+                                <div class="reservation-service">
+                                    <div class="time">
+                                        <div class="food">
+                                            <p class="title"><span class="lnr lnr-dinner pl-0"></span> losem inside</p>
+                                        </div>
+                                    </div>
+                                    <div class="title">
+                                        <p><span class="lnr lnr-chart-bars"></span> losem inside</p>
+                                    </div>
+
+
+                                    <div class="title">
+                                        <p><span class="lnr lnr-file-add"></span> losem inside</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mb-3">
+                    <div class="card-body reservation">
+                        <div class="row reservation-introdution">
+                            <div class="col-md-4 col-sm-4 col-4">
+                                <div class="">
+                                    <p class="title reservation-title-style-2 text-center">aasda</p>
+                                </div>
+                                <div class="row category-item text-center">
+                                    <p class="category-item-list col-md-2 col-sm-2 col-2 mb-0">a</p>
+                                    <p class="category-item-list col-md-2 col-sm-2 col-2 mb-0">b</p>
+                                    <p class="category-item-list col-md-2 col-sm-2 col-2 mb-0">c</p>
+                                    <p class="category-item-list col-md-2 col-sm-2 col-2 mb-0">d</p>
+                                    <p class="category-item-list col-md-2 col-sm-2 col-2 mb-0">d</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-8 col-sm-8 col-8">
+                                <div class="time">
+                                    <p class="title"><span class="lnr lnr-dinner pl-0"></span> losem inside</p>
+                                </div>
+                                <div class="title">
+                                    <p><span class="lnr lnr-construction"></span> losem inside</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row reservation-detail">
+                            <div class="col-md-4 col-sm-4 col-4 d-flex align-items-end detail">
+                                <div>
+                                    <div>asdasdasasasdasd</div>
+                                    <div>20-17-2024</div>
+                                </div>
+                            </div>
+                            <div class="col-md-8 col-sm-8 col-8">
+                                <div class="reservation-service">
+                                    <div class="time">
+                                        <div class="food">
+                                            <p class="title"><span class="lnr lnr-dinner pl-0"></span> losem inside</p>
+                                        </div>
+                                    </div>
+                                    <div class="title">
+                                        <p><span class="lnr lnr-chart-bars"></span> losem inside</p>
+                                    </div>
+
+
+                                    <div class="title">
+                                        <p><span class="lnr lnr-file-add"></span> losem inside</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mb-3">
+                    <div class="card-body reservation">
+                        <div class="row reservation-introdution">
+                            <div class="col-md-4 col-sm-4 col-4">
+                                <div class="">
+                                    <p class="title reservation-title-style-2 text-center">aasda</p>
+                                </div>
+                                <div class="row category-item text-center">
+                                    <p class="category-item-list col-md-2 col-sm-2 col-2 mb-0">a</p>
+                                    <p class="category-item-list col-md-2 col-sm-2 col-2 mb-0">b</p>
+                                    <p class="category-item-list col-md-2 col-sm-2 col-2 mb-0">c</p>
+                                    <p class="category-item-list col-md-2 col-sm-2 col-2 mb-0">d</p>
+                                    <p class="category-item-list col-md-2 col-sm-2 col-2 mb-0">d</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-8 col-sm-8 col-8">
+                                <div class="time">
+                                    <p class="title"><span class="lnr lnr-dinner pl-0"></span> losem inside</p>
+                                </div>
+                                <div class="title">
+                                    <p><span class="lnr lnr-construction"></span> losem inside</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row reservation-detail">
+                            <div class="col-md-4 col-sm-4 col-4 d-flex align-items-end detail">
+                                <div>
+                                    <div>asdasdasasasdasd</div>
+                                    <div>20-17-2024</div>
+                                </div>
+                            </div>
+                            <div class="col-md-8 col-sm-8 col-8">
+                                <div class="reservation-service">
+                                    <div class="time">
+                                        <div class="food">
+                                            <p class="title"><span class="lnr lnr-dinner pl-0"></span> losem inside</p>
+                                        </div>
+                                    </div>
+                                    <div class="title">
+                                        <p><span class="lnr lnr-chart-bars"></span> losem inside</p>
+                                    </div>
+
+
+                                    <div class="title">
+                                        <p><span class="lnr lnr-file-add"></span> losem inside</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer desktop">
         <div class="container">
             <div class="row">
                 <div class="d-flex flex-row-reverse">
-                    <div class="p-2 row"><div class="col-md-1"> <div class="reservation-style-1 "></div></div><div class="col-md-9">Flex item 1</div></div>
-                    <div class="p-2 row"><div class="col-md-1"> <div class="reservation-style-2 "></div></div><div class="col-md-9">Flex item 1</div></div>
-                    <div class="p-2 row"><div class="col-md-1"> <div class="reservation-style-3 "></div></div><div class="col-md-9">Flex item 1</div></div>
-                  </div>
+                    <div class="p-2 row">
+                        <div class="col-md-1">
+                            <div class="reservation-style-1"></div>
+                        </div>
+                        <div class="col-md-9">Flex item 1</div>
+                    </div>
+                    <div class="p-2 row">
+                        <div class="col-md-1">
+                            <div class="reservation-style-2 "></div>
+                        </div>
+                        <div class="col-md-9">Flex item 1</div>
+                    </div>
+                    <div class="p-2 row">
+                        <div class="col-md-1">
+                            <div class="reservation-style-3 "></div>
+                        </div>
+                        <div class="col-md-9">Flex item 1</div>
+                    </div>
+                </div>
             </div>
         </div>
     </footer>
 
 
     <!-- Bottom Navigation (for mobile view) -->
-    <nav class="bottom-nav d-md-none">
+    <nav class="bottom-nav mobile">
         <a href="#">Dashboard</a>
         <a href="#">Settings</a>
         <a href="#">Reports</a>
@@ -250,7 +540,7 @@
                 ],
                 events: [
                     {
-                        title: 'Event 1', 
+                        title: 'Event 1',
                         start: '2024-08-21T10:00:00',
                         end: '2024-08-21T14:00:00',
                         resourceId: 'a',
@@ -262,8 +552,10 @@
                             hotel: 'b'
                         }
                     },
-                    { title: 'Event 2', start: '2024-08-21T12:00:00', 
-                    end: '2024-08-21T16:00:00', resourceId: 'b' }
+                    {
+                        title: 'Event 2', start: '2024-08-21T12:00:00',
+                        end: '2024-08-21T16:00:00', resourceId: 'b'
+                    }
                 ],
                 timeFormat: 'h:mm',
                 resourceAreaWidth: 0, // Hide the resource area column
@@ -272,13 +564,13 @@
                     resourceTimelineDay: {
                         titleFormat: { year: 'numeric', month: 'short', day: 'numeric' },
                         slotLabelFormat: { hour: '2-digit', minute: '2-digit', meridiem: false },
-                        eventContent: function(arg, info) {
-                    // Customize the content of events in this view
+                        eventContent: function (arg, info) {
+                            // Customize the content of events in this view
                             let { event } = arg;
                             let services = ''
                             let serviceData = event.extendedProps.serviceData ?? []
                             Object.keys(serviceData).forEach(key => {
-                                services += `<div class="col-md-${ Math.ceil(12/Object.keys(serviceData).length) }">${serviceData[key]}</div>`
+                                services += `<div class="col-md-${Math.ceil(12 / Object.keys(serviceData).length)}">${serviceData[key]}</div>`
                             });
                             console.log(services)
                             return {
@@ -302,7 +594,7 @@
                         slotLabelFormat: { hour: '2-digit', minute: '2-digit', meridiem: true }
                     }
                 },
-                eventDidMount: function(info) {
+                eventDidMount: function (info) {
                     // Apply CSS class for additional styling
                     info.el.classList.add('rounded');
                     let event = info.event;
@@ -312,6 +604,40 @@
             });
 
             calendar.render();
+
+            const scrollContainer = document.getElementById('scroll-container');
+
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+
+            scrollContainer.addEventListener('mousedown', (e) => {
+                isDown = true;
+                scrollContainer.classList.add('active');
+                startX = e.pageX - scrollContainer.offsetLeft;
+                scrollLeft = scrollContainer.scrollLeft;
+                scrollContainer.style.cursor = 'grabbing'; // Change cursor when dragging
+            });
+
+            scrollContainer.addEventListener('mouseleave', () => {
+                isDown = false;
+                scrollContainer.classList.remove('active');
+                scrollContainer.style.cursor = 'grab';
+            });
+
+            scrollContainer.addEventListener('mouseup', () => {
+                isDown = false;
+                scrollContainer.classList.remove('active');
+                scrollContainer.style.cursor = 'grab';
+            });
+
+            scrollContainer.addEventListener('mousemove', (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - scrollContainer.offsetLeft;
+                const walk = (x - startX) * 2; // Scroll-fast multiplier
+                scrollContainer.scrollLeft = scrollLeft - walk;
+            });
         });
     </script>
 
