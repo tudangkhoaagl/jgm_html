@@ -559,7 +559,7 @@ li.list-group-item.group-item {
 }
 
 .scroll-container .category-item {
-    padding: 3px 20px;
+    padding: 3px 46px;
     margin-right: 10px;
     white-space: nowrap;
     border-radius: 40px;
@@ -574,6 +574,19 @@ li.list-group-item.group-item {
     background-color: #ee6046;
     border: 2px solid #ee6046;
     color: #fff;
+}
+
+.category-item {
+    position: relative;
+}
+
+.category-item .btn-delete {
+    margin-left: 3px;
+    content: 'x';
+    right: 14%;
+    bottom: 12%;
+    position: absolute;
+    cursor: pointer;
 }
 
 .category-item-scroll-2 {
@@ -592,4 +605,45 @@ li.list-group-item.group-item {
     background-color: #43ab78;
     color: #fff;
     border: 2px solid #43ab78;
+}
+
+#sticky-button {
+    position: absolute;
+    bottom: 90px; /* Distance from the bottom of the screen */
+    left: 50%;  /* Distance from the right edge of the screen */
+    padding: 10px 20px;
+    background-color: #6497b1;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    z-index: 1000; /* Ensure it's on top of other elements */
+}
+
+@media (max-width: 768px) {
+    .bottom-nav a {
+        font-size: 0.8rem;
+    }
+
+    .bottom-nav .icon-container {
+        font-size: 1.2rem;
+    }
+
+    .bottom-nav .label {
+        font-size: 0.7rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .bottom-nav a {
+        font-size: 0.7rem;
+    }
+
+    .bottom-nav .icon-container {
+        font-size: 1rem;
+    }
+
+    .bottom-nav .label {
+        font-size: 0.6rem;
+    }
 }

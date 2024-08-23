@@ -201,12 +201,12 @@
             <div id="calendar" class="desktop" style="height: 800px"></div>
             <div class="mobile">
                 <div id="scroll-container" class="scroll-container">
-                    <div class="category-item category-item-scroll-1">Category 1</div>
-                    <div class="category-item category-item-scroll-2">Category 2</div>
-                    <div class="category-item category-item-scroll-3">Category 3</div>
-                    <div class="category-item category-item-scroll-4">Category 4</div>
-                    <div class="category-item category-item-scroll-1">Category 5</div>
-                    <div class="category-item category-item-scroll-2">Category 6</div>
+                    <div class="category-item category-item-scroll-1">Category 1 <span class="btn-delete">x</span></div>
+                    <div class="category-item category-item-scroll-2">Category 2 <span class="btn-delete">x</span></div>
+                    <div class="category-item category-item-scroll-3">Category 3 <span class="btn-delete">x</span></div>
+                    <div class="category-item category-item-scroll-4">Category 4 <span class="btn-delete">x</span></div>
+                    <div class="category-item category-item-scroll-1">Category 5 <span class="btn-delete">x</span></div>
+                    <div class="category-item category-item-scroll-2">Category 6 <span class="btn-delete">x</span></div>
                 </div>
                 <div class="card mb-3">
                     <div class="card-body reservation">
@@ -504,12 +504,43 @@
         </div>
     </footer>
 
-
+    <button id="sticky-button" class="mobile"><span class="lnr lnr-text-align-justify"></span> 予約をり込</button>
     <!-- Bottom Navigation (for mobile view) -->
-    <nav class="bottom-nav mobile">
-        <a href="#">Dashboard</a>
-        <a href="#">Settings</a>
-        <a href="#">Reports</a>
+    <nav class="bottom-nav mobile px-">
+        <div class="d-flex justify-content-between px-5">
+            <a href="#">
+                <div>
+                    <span class="lnr lnr-construction"></span>
+                </div>
+                <div>
+                    Dashboard
+                </div>
+            </a>
+            <a href="#">
+                <div>
+                    <span class="lnr lnr-construction"></span>
+                </div>
+                <div>
+                    Dashboard
+                </div>
+            </a>
+            <a href="#">
+                <div>
+                    <span class="lnr lnr-construction"></span>
+                </div>
+                <div>
+                    Dashboard
+                </div>
+            </a>
+            <a href="#">
+                <div>
+                    <span class="lnr lnr-construction"></span>
+                </div>
+                <div>
+                    Dashboard
+                </div>
+            </a>
+        </div>
     </nav>
     <script src="../assets/js/bootstrap/bootstrap.bundle.min.js">
     </script>
@@ -638,6 +669,41 @@
                 const walk = (x - startX) * 2; // Scroll-fast multiplier
                 scrollContainer.scrollLeft = scrollLeft - walk;
             });
+            // Touch events for mobile
+            scrollContainer.addEventListener('touchstart', (e) => {
+                isDown = true;
+                startX = e.touches[0].pageX - scrollContainer.offsetLeft;
+                scrollLeft = scrollContainer.scrollLeft;
+            });
+
+            scrollContainer.addEventListener('touchend', () => {
+                isDown = false;
+            });
+
+            scrollContainer.addEventListener('touchmove', (e) => {
+                if (!isDown) return;
+                const x = e.touches[0].pageX - scrollContainer.offsetLeft;
+                const walk = (x - startX) * 2; // Scroll-fast multiplier
+                scrollContainer.scrollLeft = scrollLeft - walk;
+            });
+
+            function centerButton() {
+                const button = document.getElementById('sticky-button');
+                const screenWidth = window.innerWidth;
+                const buttonWidth = button.offsetWidth;
+
+                // Calculate the left position to center the button
+                const leftPosition = (screenWidth - buttonWidth) / 2;
+
+                // Apply the calculated left position
+                button.style.left = `${leftPosition}px`;
+            }
+
+            // Run the function to center the button
+            centerButton();
+
+            // Recalculate the position when the window is resized
+            window.addEventListener('resize', centerButton);
         });
     </script>
 
