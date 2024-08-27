@@ -216,7 +216,6 @@ header {
     color: #000;
     font-weight: 500;
     max-height: 40px;
-    padding-top: 7px;
     flex-grow: 1;
 }
 
@@ -464,6 +463,7 @@ header .main-menu a {
 
     .main-content.mobile-flex {
         margin-top: 58px;
+        background-color: #fffbfb;
     }
 
     .mobile .calendar .btn {
@@ -474,6 +474,7 @@ header .main-menu a {
         font-weight: 500;
         font-size: 18px;
         border-radius: unset;
+        padding-top: 10px;
     }
 
     .mobile .calendar .btn.btn-dot {
@@ -505,7 +506,7 @@ header .main-menu a {
         color: #000;
         font-weight: 500;
         max-height: 105px;
-        padding-top: 8px;
+        padding-top: 0px;
         flex-grow: 1;
         height: 46px;
         border-top: 1px solid black;
@@ -524,13 +525,50 @@ header .main-menu a {
         color: #fff;
     }
 
-    .mobile .category .category-item .category-item-list {}
-
     .reservation-service {
         padding-left: 10px;
         border-left: 1px solid black;
     }
+
+    .text-information {
+        max-width: calc(100%);
+        /* Adjust the division based on the number of columns */
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin: 10px 0 20px 0px;
+    }
+
+    .mobile.button-navigate {
+        display: flex;
+        justify-content: end;
+    }
+    .mobile.button-navigate .navigate {
+        padding: 15px 20px;
+        color: #f8f9fa;
+    }
+
+    
+    .mobile.button-navigate .navigate a { 
+        color: #f8f9fa;
+        text-decoration: none;
+    }
+
+    
+    .mobile.button-navigate .navigate a span:before {
+        font-weight: 700;
+    }
+
 }
+
+.lnr-chevron-right:before {
+    font-weight: 700;
+}
+
+.lnr-chevron-left:before {
+    font-weight: 700;
+}
+
 
 header .logo {
     display: inline-block;
@@ -583,10 +621,12 @@ li.list-group-item.group-item {
 .category-item .btn-delete {
     margin-left: 3px;
     content: 'x';
-    right: 14%;
-    bottom: 12%;
+    right: 5%;
+    bottom: 16%;
+    font-size: 21px;
     position: absolute;
     cursor: pointer;
+    font-weight: 700;
 }
 
 .category-item-scroll-2 {
@@ -609,15 +649,18 @@ li.list-group-item.group-item {
 
 #sticky-button {
     position: absolute;
-    bottom: 90px; /* Distance from the bottom of the screen */
-    left: 50%;  /* Distance from the right edge of the screen */
+    bottom: 90px;
+    /* Distance from the bottom of the screen */
+    left: 50%;
+    /* Distance from the right edge of the screen */
     padding: 10px 20px;
     background-color: #6497b1;
     color: white;
     border: none;
     border-radius: 20px;
     cursor: pointer;
-    z-index: 1000; /* Ensure it's on top of other elements */
+    z-index: 1000;
+    /* Ensure it's on top of other elements */
 }
 
 @media (max-width: 768px) {
@@ -646,4 +689,21 @@ li.list-group-item.group-item {
     .bottom-nav .label {
         font-size: 0.6rem;
     }
+}
+
+.date-picker {
+    height: 100%;
+    border-radius: 0;
+}
+
+.date-picker:focus {
+    color: var(--bs-body-color);
+    background-color: var(--bs-body-bg);
+    border-color: unset;
+    outline: 0;
+    box-shadow: unset
+}
+
+.main-menu.desktop div.active{
+    background-color: #1e6588;
 }

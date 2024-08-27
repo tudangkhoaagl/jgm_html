@@ -6,9 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sidebar Toggle</title>
     <link href="../assets/css/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/css/bootstrap/bootstrap-datetimepicker.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/main.css">
     <link rel="stylesheet" href="../assets/linearicons/style.css">
     <link rel="stylesheet" href="https://uicdn.toast.com/calendar/latest/toastui-calendar.min.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" rel="stylesheet">
 
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar-scheduler@6.1.15/index.global.min.js'></script>
     <link rel="stylesheet" href="../assets/linearicons/style.css">
@@ -18,7 +20,7 @@
     <!-- Header -->
     <header>
         <div class="row">
-            <div class="d-flex col-md-3 menu">
+            <div class="d-flex col-xl-3 col-md-9 col-9 menu">
                 <div class="menu-icon menu-item">
                     <div id="menu-toggle" class="btn text-white">
                         <div class="hamburger">
@@ -30,57 +32,64 @@
                     <span>かもめきっちん東京駅八重</span>
                 </div>
             </div>
+            <div class="col-md-3 col-3 mobile button-navigate">
+                <div class="navigate">
+                    <a href=""><span class="lnr lnr-undo"></span></a>
+                </div>
+                <div class="navigate">
+                    <a href=""><span class="lnr lnr-undo"></span></a>
+                </div>
+            </div>
             <div class="col-md-3 desktop">
                 <div class="calendar d-flex">
                     <div class="arrow-left btn">
-                        <span class="arrow left">&lt;</span>
+                        <span class="lnr lnr-chevron-left"></span>
                     </div>
                     <div class="btn btn-dot">
                         <span class="arrow dot"></span>
                     </div>
                     <div class="date-box text-center">
-                        <span class="date-text">📅</span>
-                        <span class="date-text">9/26(月)</span>
+                        <input type="text" class="form-control date-picker" id="date">
                     </div>
                     <div class="btn arrow-right">
-                        <span class="arrow right">&gt;</span>
+                        <span class="lnr lnr-chevron-right"></span>
                     </div>
                 </div>
             </div>
             <div class="col-md-6 row main-menu desktop">
-                <div class="col-md-2 text-center">
+                <div class="col-md-2 text-center  active">
                     <a class="main-menu-item text-white link-underline-opacity-0" href="">
-                        <img src="../assets/images/home.png" class="menu-url" alt="">
+                        <span class="lnr lnr-construction"></span>
                         <p class="menu-text">Home</p>
                     </a>
                 </div>
                 <div class="col-md-2  text-center">
                     <a class="main-menu-item text-white link-underline-opacity-0" href="">
-                        <img src="../assets/images/home.png" class="menu-url" alt="">
+                        <span class="lnr lnr-text-align-justify"></span>
                         <p class="menu-text">Home</p>
                     </a>
                 </div>
                 <div class="col-md-2 text-center">
                     <a class="main-menu-item text-white link-underline-opacity-0" href="">
-                        <img src="../assets/images/home.png" class="menu-url" alt="">
+                        <span class="lnr lnr-calendar-full"></span>
                         <p class="menu-text">Home</p>
                     </a>
                 </div>
                 <div class="col-md-2 text-center">
                     <a class="main-menu-item text-white link-underline-opacity-0" href="">
-                        <img src="../assets/images/home.png" class="menu-url" alt="">
+                        <span class="lnr lnr-apartment"></span>
                         <p class="menu-text">Home</p>
                     </a>
                 </div>
                 <div class="col-md-2 text-center">
                     <a class="main-menu-item text-white link-underline-opacity-0" href="">
-                        <img src="../assets/images/home.png" class="menu-url" alt="">
+                        <span class="lnr lnr-laptop"></span>
                         <p class="menu-text">Home</p>
                     </a>
                 </div>
                 <div class="col-md-2 text-center">
                     <a class="main-menu-item text-white link-underline-opacity-0" href="">
-                        <img src="../assets/images/home.png" class="menu-url" alt="">
+                        <span class="lnr lnr-menu"></span>
                         <p class="menu-text">Home</p>
                     </a>
                 </div>
@@ -92,17 +101,16 @@
         <div class="mobile">
             <div class="calendar d-flex">
                 <div class="arrow-left btn">
-                    <span class="arrow left">&lt;</span>
+                    <span class="lnr lnr-chevron-left"></span>
                 </div>
                 <div class="btn btn-dot">
                     <span class="arrow dot"></span>
                 </div>
                 <div class="date-box text-center">
-                    <span class="date-text">📅</span>
-                    <span class="date-text">9/26(月)</span>
+                    <input type="text" class="form-control date-picker" id="date">
                 </div>
                 <div class="btn arrow-right">
-                    <span class="arrow right">&gt;</span>
+                    <span class="lnr lnr-chevron-right"></span>
                 </div>
             </div>
         </div>
@@ -201,19 +209,27 @@
             <div id="calendar" class="desktop" style="height: 800px"></div>
             <div class="mobile">
                 <div id="scroll-container" class="scroll-container">
-                    <div class="category-item category-item-scroll-1">Category 1 <span class="btn-delete">x</span></div>
-                    <div class="category-item category-item-scroll-2">Category 2 <span class="btn-delete">x</span></div>
-                    <div class="category-item category-item-scroll-3">Category 3 <span class="btn-delete">x</span></div>
-                    <div class="category-item category-item-scroll-4">Category 4 <span class="btn-delete">x</span></div>
-                    <div class="category-item category-item-scroll-1">Category 5 <span class="btn-delete">x</span></div>
-                    <div class="category-item category-item-scroll-2">Category 6 <span class="btn-delete">x</span></div>
+                    <div class="category-item category-item-scroll-1">Category 1 <span
+                            class="lnr lnr-cross btn-delete"></span></div>
+                    <div class="category-item category-item-scroll-2">Category 2 <span
+                            class="lnr lnr-cross btn-delete"></span></div>
+                    <div class="category-item category-item-scroll-3">Category 3 <span
+                            class="lnr lnr-cross btn-delete"></span></div>
+                    <div class="category-item category-item-scroll-4">Category 4 <span
+                            class="lnr lnr-cross btn-delete"></span></div>
+                    <div class="category-item category-item-scroll-1">Category 5 <span
+                            class="lnr lnr-cross btn-delete"></span></div>
+                    <div class="category-item category-item-scroll-2">Category 6 <span
+                            class="lnr lnr-cross btn-delete"></span></div>
                 </div>
+                <div class="text-information ">
+                    トペッパーグルメ、500012,トペッパーグルメ、500012,トペッパーグルメ、500012,トペッパーグルメ、500012,トペッパーグルメ、500012</div>
                 <div class="card mb-3">
                     <div class="card-body reservation">
                         <div class="row reservation-introdution">
                             <div class="col-md-4 col-sm-4 col-4">
                                 <div class="">
-                                    <p class="title reservation-title-style-2 text-center">aasda</p>
+                                    <p class="title reservation-title-style-2 text-center">Lorem Ipsum is simply dummy </p>
                                 </div>
                                 <div class="row category-item text-center">
                                     <p class="category-item-list col-md-2 col-sm-2 col-2 mb-0">a</p>
@@ -236,7 +252,7 @@
                         <div class="row reservation-detail">
                             <div class="col-md-4 col-sm-4 col-4 d-flex align-items-end detail">
                                 <div>
-                                    <div>asdasdasasasdasd</div>
+                                    <div>Lorem Ipsum is simply dummy </div>
                                     <div>20-17-2024</div>
                                 </div>
                             </div>
@@ -266,7 +282,7 @@
                         <div class="row reservation-introdution">
                             <div class="col-md-4 col-sm-4 col-4">
                                 <div class="">
-                                    <p class="title reservation-title-style-2 text-center">aasda</p>
+                                    <p class="title reservation-title-style-2 text-center">Lorem Ipsum is simply dummy </p>
                                 </div>
                                 <div class="row category-item text-center">
                                     <p class="category-item-list col-md-2 col-sm-2 col-2 mb-0">a</p>
@@ -289,7 +305,7 @@
                         <div class="row reservation-detail">
                             <div class="col-md-4 col-sm-4 col-4 d-flex align-items-end detail">
                                 <div>
-                                    <div>asdasdasasasdasd</div>
+                                    <div>Lorem Ipsum is simply dummy </div>
                                     <div>20-17-2024</div>
                                 </div>
                             </div>
@@ -319,7 +335,7 @@
                         <div class="row reservation-introdution">
                             <div class="col-md-4 col-sm-4 col-4">
                                 <div class="">
-                                    <p class="title reservation-title-style-2 text-center">aasda</p>
+                                    <p class="title reservation-title-style-2 text-center">Lorem Ipsum is simply dummy </p>
                                 </div>
                                 <div class="row category-item text-center">
                                     <p class="category-item-list col-md-2 col-sm-2 col-2 mb-0">a</p>
@@ -342,7 +358,7 @@
                         <div class="row reservation-detail">
                             <div class="col-md-4 col-sm-4 col-4 d-flex align-items-end detail">
                                 <div>
-                                    <div>asdasdasasasdasd</div>
+                                    <div>Lorem Ipsum is simply dummy </div>
                                     <div>20-17-2024</div>
                                 </div>
                             </div>
@@ -372,7 +388,7 @@
                         <div class="row reservation-introdution">
                             <div class="col-md-4 col-sm-4 col-4">
                                 <div class="">
-                                    <p class="title reservation-title-style-2 text-center">aasda</p>
+                                    <p class="title reservation-title-style-2 text-center">Lorem Ipsum is simply dummy </p>
                                 </div>
                                 <div class="row category-item text-center">
                                     <p class="category-item-list col-md-2 col-sm-2 col-2 mb-0">a</p>
@@ -395,7 +411,7 @@
                         <div class="row reservation-detail">
                             <div class="col-md-4 col-sm-4 col-4 d-flex align-items-end detail">
                                 <div>
-                                    <div>asdasdasasasdasd</div>
+                                    <div>Lorem Ipsum is simply dummy </div>
                                     <div>20-17-2024</div>
                                 </div>
                             </div>
@@ -425,7 +441,7 @@
                         <div class="row reservation-introdution">
                             <div class="col-md-4 col-sm-4 col-4">
                                 <div class="">
-                                    <p class="title reservation-title-style-2 text-center">aasda</p>
+                                    <p class="title reservation-title-style-2 text-center">Lorem Ipsum is simply dummy </p>
                                 </div>
                                 <div class="row category-item text-center">
                                     <p class="category-item-list col-md-2 col-sm-2 col-2 mb-0">a</p>
@@ -448,7 +464,7 @@
                         <div class="row reservation-detail">
                             <div class="col-md-4 col-sm-4 col-4 d-flex align-items-end detail">
                                 <div>
-                                    <div>asdasdasasasdasd</div>
+                                    <div>Lorem Ipsum is simply dummy </div>
                                     <div>20-17-2024</div>
                                 </div>
                             </div>
@@ -518,7 +534,7 @@
             </a>
             <a href="#">
                 <div>
-                    <span class="lnr lnr-construction"></span>
+                    <span class="lnr lnr-text-align-justify"></span>
                 </div>
                 <div>
                     Dashboard
@@ -526,7 +542,7 @@
             </a>
             <a href="#">
                 <div>
-                    <span class="lnr lnr-construction"></span>
+                    <span class="lnr lnr-calendar-full"></span>
                 </div>
                 <div>
                     Dashboard
@@ -534,7 +550,7 @@
             </a>
             <a href="#">
                 <div>
-                    <span class="lnr lnr-construction"></span>
+                    <span class="lnr lnr-apartment"></span>
                 </div>
                 <div>
                     Dashboard
@@ -542,14 +558,22 @@
             </a>
         </div>
     </nav>
+    <script src="../assets/js/jquery-3.6.0.min.js"></script>
     <script src="../assets/js/bootstrap/bootstrap.bundle.min.js">
     </script>
-    <script src="../assets/js/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+
     <script>
         $(document).ready(function () {
             $('#menu-toggle').on('click', function () {
                 $('#sidebar').toggleClass('show');
                 $('.content-wrapper').toggleClass('expanded');
+            });
+
+            $('.date-picker').datepicker({
+                format: 'yyyy-mm-dd', // Customize the date format
+                autoclose: true, // Close the dropdown after selecting a date
+                todayHighlight: true // Highlight today's date
             });
         });
         document.addEventListener('DOMContentLoaded', function () {
